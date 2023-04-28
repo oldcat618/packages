@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="zh-cn">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="author" content="cezary@eko.one.pl">
+	<meta name="author" content="wwwcat@126.com">
 	<link rel="icon" href="/easyconfig/favicon.ico">
 	<title></title>
 	<link href="/easyconfig/bootstrap.min.css?v=1" rel="stylesheet">
@@ -22,27 +22,27 @@
 
 <div id="menu" class="sidenav">
 	<a href="#" class="closebtn" onclick="closenav();">&times;</a>
-	<a href="#" onclick="btn_pages('status');"><i data-feather="bar-chart-2" class="iconwithtext"></i>Status</a>
-	<a href="#" onclick="btn_pages('config');"><i data-feather="settings" class="iconwithtext"></i>Ustawienia</a>
-	<a href="#" onclick="btn_pages('system');"><i data-feather="server" class="iconwithtext"></i>System</a>
-	<a href="#" onclick="btn_pages('watchdog');"><i data-feather="activity" class="iconwithtext"></i>Monitor połączenia</a>
+	<a href="#" onclick="btn_pages('status');"><i data-feather="bar-chart-2" class="iconwithtext"></i>状态</a>
+	<a href="#" onclick="btn_pages('config');"><i data-feather="settings" class="iconwithtext"></i>设置</a>
+	<a href="#" onclick="btn_pages('system');"><i data-feather="server" class="iconwithtext"></i>系统</a>
+	<a href="#" onclick="btn_pages('watchdog');"><i data-feather="activity" class="iconwithtext"></i>连接监听</a>
 	<div id="menu_wlan">
-		<a href="#" onclick="btn_pages('sitesurvey');"><i data-feather="wifi" class="iconwithtext"></i>Sieci Wi-Fi</a>
+		<a href="#" onclick="btn_pages('sitesurvey');"><i data-feather="wifi" class="iconwithtext"></i>Wi-Fi网络</a>
 	</div>
-	<a href="#" onclick="btn_pages('clients');"><i data-feather="users" class="iconwithtext"></i>Klienci</a>
-	<a href="#" onclick="btn_pages('clientslogs');"><i data-feather="book-open" class="iconwithtext"></i>Historia połączeń</a>
+	<a href="#" onclick="btn_pages('clients');"><i data-feather="users" class="iconwithtext"></i>用户</a>
+	<a href="#" onclick="btn_pages('clientslogs');"><i data-feather="book-open" class="iconwithtext"></i>历史记录</a>
 	<div id="menu_queries" style="display:none;">
-		<a href="#" onclick="btn_pages('queries');"><i data-feather="search" class="iconwithtext"></i>Zapytania DNS</a>
+		<a href="#" onclick="btn_pages('queries');"><i data-feather="search" class="iconwithtext"></i>DNS查询</a>
 	</div>
-	<a href="#" onclick="btn_pages('traffic');"><i data-feather="repeat" class="iconwithtext"></i>Transfer</a>
+	<a href="#" onclick="btn_pages('traffic');"><i data-feather="repeat" class="iconwithtext"></i>传输</a>
 	<div id="menu_ussdsms" style="display:none;">
-		<a href="#" onclick="btn_pages('ussdsms');"><i data-feather="mail" class="iconwithtext"></i>USSD / SMS</a>
+		<a href="#" onclick="btn_pages('ussdsms');"><i data-feather="mail" class="iconwithtext"></i>USSD/短信</a>
 	</div>
 	<div id="menu_vpn" style="display:none;">
 		<a href="#" onclick="btn_pages('vpn');"><i data-feather="shield" class="iconwithtext"></i>VPN</a>
 	</div>
-	<a href="#" onclick="btn_pages('adblock');"><i data-feather="globe" class="iconwithtext"></i>Blokada domen</a>
-	<a href="#" onclick="btn_pages('nightmode');"><i data-feather="moon" class="iconwithtext"></i>Tryb nocny</a>
+	<a href="#" onclick="btn_pages('adblock');"><i data-feather="globe" class="iconwithtext"></i>域锁定</a>
+	<a href="#" onclick="btn_pages('nightmode');"><i data-feather="moon" class="iconwithtext"></i>夜间模式</a>
 	<div id="menu_gps" style="display:none;">
 		<a href="#" onclick="btn_pages('gps');"><i data-feather="map-pin" class="iconwithtext"></i>GPS</a>
 	</div>
@@ -60,21 +60,21 @@
 		<div class="col-sm-6 margintop">
 			<form class="form-horizontal">
 				<div class="form-group" style="display:none;">
-					<label for="system_login" class="col-xs-4 col-sm-3 control-label">Login</label>
+					<label for="system_login" class="col-xs-4 col-sm-3 control-label">登录Login</label>
 					<div class="col-xs-8 col-sm-9">
 						<input id="system_login" type="text" class="form-control" value="root">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="system_password" class="col-xs-12 text-left">Hasło</label>
+					<label for="system_password" class="col-xs-12 text-left">密码</label>
 					<div class="col-xs-12">
 						<input id="system_password" type="password" class="form-control" onkeydown="if (event.keyCode == 13) document.getElementById('loginbtn').click()" autofocus>
 					</div>
 				</div>
 			</form>
 			<div class="text-center">
-				<input type="button" class="btn btn-primary" id="loginbtn" onclick="login();" value="Logowanie" />
+				<input type="button" class="btn btn-primary" id="loginbtn" onclick="login();" value="登录" />
 			</div>
 		</div>
 	</div>
@@ -97,7 +97,7 @@
 	</div>
 
 	<div class="alert alert-danger text-center" id="div_security" style="display:none">
-		<strong>UWAGA!</strong> Wymagana jest zmiana domyślnego hasła do routera!
+		<strong>注意!</strong> 需要更改默认路由器密码！
 	</div>
 
 	<div id="div_status">
@@ -107,37 +107,37 @@
 		<div class="row">
 			<div class="col-sm-8">
 				<div class="row">
-					<label class="col-xs-6 text-right">Operator</label>
+					<label class="col-xs-6 text-right">操作人员</label>
 					<div class="col-xs-6">
 					<p id="modem_operator">-</p>
 					</div>
 				</div>
 				<div class="row">
-					<label class="col-xs-6 text-right">Sygnał</label>
+					<label class="col-xs-6 text-right">信号</label>
 					<div class="col-xs-6">
 					<p id="modem_signal">-</p>
 					</div>
 				</div>
 				<div class="row">
-					<label class="col-xs-6 text-right">Technologia</label>
+					<label class="col-xs-6 text-right">模式</label>
 					<div class="col-xs-6">
 					<p id="modem_mode">-</p>
 					</div>
 				</div>
 				<div class="row">
-					<label class="col-xs-6 text-right">Status karty SIM</label>
+					<label class="col-xs-6 text-right">SIM卡状态</label>
 					<div class="col-xs-6">
 					<p id="modem_registration">-</p>
 					</div>
 				</div>
 				<div class="row" id="div_modem_addon" style="display:none;">
 					<div class="col-xs-6 col-xs-offset-6">
-					<p><a href="#" class="click" onclick="modemaddon();">więcej parametrów</a></p>
+					<p><a href="#" class="click" onclick="modemaddon();">更多参数</a></p>
 					</div>
 				</div>
 				<div class="row" id="div_modem_btsearch" style="display:none;">
 					<div class="col-xs-6 col-xs-offset-6">
-					<p><a href="#" id="modem_btsearch" class="click" target="_blank">lokalizacja stacji bazowej &rarr;</a></p>
+					<p><a href="#" id="modem_btsearch" class="click" target="_blank">基站的位置 &rarr;</a></p>
 					</div>
 				</div>
 			</div>
@@ -154,33 +154,35 @@
 	</div>
 
 	<div id="div_status_wan" style="display:none;">
-		<h3 class="section">Internet</h3>
+		<h3 class="section">互联网</h3>
 		<div class="row">
-			<label class="col-xs-6 text-right">Liczba wznowień połączenia</label>
+			<label class="col-xs-6 text-right">重试次数</label>
 			<div class="col-xs-6">
 			<p id="wan_up_cnt">-</p>
 			</div>
 		</div>
 		<div class="row">
-			<label class="col-xs-6 text-right">Czas połączenia</label>
+			<label class="col-xs-6 text-right">连接时间</label>
 			<div class="col-xs-6">
 			<p><span id="wan_uptime">-</span><span class="visible-xs oneline"></span><small><span id="wan_uptime_since"></span></small></p>
 			</div>
 		</div>
 		<div class="row">
-			<label class="col-xs-6 text-right">Wysłano</label>
+			<label class="col-xs-6 text-right">发送</label>
 			<div class="col-xs-6">
 			<p id="wan_tx">-</p>
 			</div>
 		</div>
 		<div class="row">
-			<label class="col-xs-6 text-right">Pobrano</label>
+			<label class="col-xs-6 text-right">已下载</label>
 			<div class="col-xs-6">
 			<p id="wan_rx">-</p>
 			</div>
 		</div>
 		<div class="row">
-			<label class="col-xs-6 text-right">Adres IP</label>
+			<label class="col-xs-6 text-right">IP地址
+
+</label>
 			<div class="col-xs-6">
 			<p id="wan_ipaddr_status">-</p>
 			</div>
@@ -188,12 +190,12 @@
 		<div class="row" id="div_vpn_up_status" style="display:none;">
 			<label class="col-xs-6 text-right">VPN</label>
 			<div class="col-xs-6">
-			<a href="#" class="click" onclick="btn_pages('vpn');"><p>aktywny</p></a>
+			<a href="#" class="click" onclick="btn_pages('vpn');"><p>活动的</p></a>
 			</div>
 		</div>
 		<div class="row" id="div_wan_lanto_status" style="display:none;">
 			<div class="col-xs-6 col-xs-offset-6">
-			<p>wyłączony dostęp sieci lokalnej do internetu</p></a>
+			<p>禁用对Internet的本地网络访问</p></a>
 			</div>
 		</div>
 	</div>
@@ -201,13 +203,13 @@
 	<div id="div_status_wlan">
 		<h3 class="section">Wi-Fi</h3>
 		<div class="row">
-			<label class="col-xs-6 text-right">Wykorzystywane kanały</label>
+			<label class="col-xs-6 text-right">使用的频道</label>
 			<div class="col-xs-6">
 			<p id="wlan_current_channels">-</p>
 			</div>
 		</div>
 		<div class="row">
-			<label class="col-xs-6 text-right">Połączonych klientów</label>
+			<label class="col-xs-6 text-right">已连接的客户端</label>
 			<div class="col-xs-6">
 			<a href="#" class="click" onclick="btn_pages('clients');"><p id="wlan_clients">0</p></a>
 			</div>
@@ -215,9 +217,9 @@
 	</div>
 
 	<div id="div_status_lan">
-		<h3 class="section">Sieć lokalna</h3>
+		<h3 class="section">本地网络</h3>
 		<div class="row">
-			<label class="col-xs-6 text-right">Połączonych klientów</label>
+			<label class="col-xs-6 text-right">已连接的客户端</label>
 			<div class="col-xs-6">
 			<a href="#" class="click" onclick="btn_pages('clients');"><p id="lan_clients">0</p></a>
 			</div>
@@ -229,52 +231,52 @@
 	<div id="div_status_mwan3" style="display:none;">
 		<h3 class="section"><span id="mwan3_policy"></span></h3>
 		<div class="row">
-			<div class="col-xs-3 col-xs-offset-3"><p>Status</p></div>
-			<div class="col-xs-3"><p>Czas pracy</p></div>
-			<div class="col-xs-3"><p>Udział w ruchu</p></div>
+			<div class="col-xs-3 col-xs-offset-3"><p>状态</p></div>
+			<div class="col-xs-3"><p>工作时间</p></div>
+			<div class="col-xs-3"><p>转发数据包</p></div>
 		</div>
 		<div id="div_status_mwan3_content"></div>
 	</div>
 
-	<h3 class="section">System</h3>
+	<h3 class="section">系统</h3>
 	<div class="row">
-		<label class="col-xs-6 text-right">Obciążenie</label>
+		<label class="col-xs-6 text-right">负载</label>
 		<div class="col-xs-6">
 		<p id="system_load">-</p>
 		</div>
 	</div>
 	<div class="row">
-		<label class="col-xs-6 text-right">Czas pracy</label>
+		<label class="col-xs-6 text-right">工作时间</label>
 		<div class="col-xs-6">
 		<p><span id="system_uptime">-</span><span class="visible-xs oneline"></span><small><span id="system_uptime_since"></span></small></p>
 		</div>
 	</div>
 	<div class="row">
-		<label class="col-xs-6 text-right">Data i czas</label>
+		<label class="col-xs-6 text-right">日期和时间</label>
 		<div class="col-xs-6">
 		<p id="system_time">-</p>
 		</div>
 	</div>
 
 	<div id="div_status_sensors" style="display:none;">
-		<h3 class="section">Sensory</h3>
+		<h3 class="section">传感器</h3>
 		<div id="div_status_sensors_addon">
 		</div>
 	</div>
 
 	<h3 class="section"></h3>
 	<div class="text-center">
-		<input type="button" class="btn btn-default" onclick="btn_pages('status');" value="Odśwież" />
+		<input type="button" class="btn btn-default" onclick="btn_pages('status');" value="刷新" />
 	</div>
 
 	</div>
 
 	<div id="div_settings" style="display:none;">
 
-	<h3 class="section">Internet</h3>
+	<h3 class="section">互联网</h3>
 	<form class="form-horizontal">
 		<div class="form-group">
-			<label for="wan_proto" class="col-xs-4 col-sm-3 control-label">Typ połączenia</label>
+			<label for="wan_proto" class="col-xs-4 col-sm-3 control-label">连接类型</label>
 			<div class="col-xs-8 col-sm-9">
 			<select id="wan_proto" class="form-control" onchange="enableWan(this.value)">
 			</select>
@@ -282,14 +284,14 @@
 		</div>
 
 		<div class="form-group" id="div_wan_ipaddr">
-			<label for="wan_ipaddr" class="col-xs-4 col-sm-3 control-label">Adres IP</label>
+			<label for="wan_ipaddr" class="col-xs-4 col-sm-3 control-label">IP地址</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="wan_ipaddr" type="text" class="form-control" onkeyup="proofreadIp(this)">
 			</div>
 		</div>
 
 		<div class="form-group" id="div_wan_netmask">
-			<label for="wan_netmask" class="col-xs-4 col-sm-3 control-label">Maska</label>
+			<label for="wan_netmask" class="col-xs-4 col-sm-3 control-label">子网掩码</label>
 			<div class="col-xs-8 col-sm-9">
 			<select id="wan_netmask" class="form-control">
 			<option value="0.0.0.0">/0 (0.0.0.0)</option>
@@ -330,14 +332,14 @@
 		</div>
 
 		<div class="form-group" id="div_wan_gateway">
-			<label for="wan_gateway" class="col-xs-4 col-sm-3 control-label">Brama</label>
+			<label for="wan_gateway" class="col-xs-4 col-sm-3 control-label">网关</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="wan_gateway" type="text" class="form-control" onkeyup="proofreadIp(this)">
 			</div>
 		</div>
 
 		<div class="form-group" id="div_wan_device">
-			<label for="wan_device" class="col-xs-4 col-sm-3 control-label">Urządzenie</label>
+			<label for="wan_device" class="col-xs-4 col-sm-3 control-label">设备</label>
 			<div class="col-xs-8 col-sm-9">
 			<select id="wan_device" class="form-control">
 			</select>
@@ -368,12 +370,12 @@
 
 		<div class="form-group" id="div_wan_dashboard_url">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-			<a href="#" id="wan_dashboard_url" class="click" target="_blank">panel zarządzania modemu &rarr;</a>
+			<a href="#" id="wan_dashboard_url" class="click" target="_blank">Modem管理面板 &rarr;</a>
 			</div>
 		</div>
 
 		<div class="form-group" id="div_wan_modem_mode">
-			<label for="wan_modem_mode" class="col-xs-4 col-sm-3 control-label">Technologia</label>
+			<label for="wan_modem_mode" class="col-xs-4 col-sm-3 control-label">模式</label>
 			<div class="col-xs-8 col-sm-9">
 			<select id="wan_modem_mode" class="form-control">
 			</select>
@@ -381,7 +383,7 @@
 		</div>
 
 		<div class="form-group" id="div_wan_dns">
-			<label for="wan_dns" class="col-xs-4 col-sm-3 control-label">Serwery DNS</label>
+			<label for="wan_dns" class="col-xs-4 col-sm-3 control-label">DNS服务器</label>
 			<div class="col-xs-8 col-sm-9">
 			<select id="wan_dns" class="form-control" onchange="enableDns(this.value)">
 			</select>
@@ -390,7 +392,7 @@
 
 		<div class="form-group" id="div_wan_dns_url">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-			<a href="#" id="wan_dns_url" class="click" target="_blank">opis serwera &rarr;</a>
+			<a href="#" id="wan_dns_url" class="click" target="_blank">服务器描述 &rarr;</a>
 			</div>
 		</div>
 
@@ -409,49 +411,49 @@
 		</div>
 
 		<div class="form-group" id="div_wan_metered">
-			<label for="wan_metered" class="col-xs-4 col-sm-3 control-label">Połączenie mierzone</label>
+			<label for="wan_metered" class="col-xs-4 col-sm-3 control-label">测试连接</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="wan_metered" type="checkbox">
 				<div class="slider round"></div>
 			</label>
-			<span class="hidden-xs control-label labelleft"><em><small class="form-text text-muted">połączenie ma ograniczenia danych lub wiąże się z opłatami</small></em></span>
-			<div class="visible-xs"><em><small class="form-text text-muted">połączenie ma ograniczenia danych lub wiąże się z opłatami</small></em></div>
+			<span class="hidden-xs control-label labelleft"><em><small class="form-text text-muted">连接有数据限制或收费</small></em></span>
+			<div class="visible-xs"><em><small class="form-text text-muted">连接有数据限制或收费</small></em></div>
 			</div>
 		</div>
 
 		<div class="form-group" id="div_wan_lanto">
-			<label for="wan_lanto" class="col-xs-4 col-sm-3 control-label">Dostęp z sieci lokalnej</label>
+			<label for="wan_lanto" class="col-xs-4 col-sm-3 control-label">本地网络接入</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="wan_lanto" type="checkbox">
 				<div class="slider round"></div>
 			</label>
-			<span class="hidden-xs control-label labelleft"><em><small class="form-text text-muted">umożliwia dostęp sieci lokalnej do internetu przez <span id="wan_lanto_interface1"></span></small></em></span>
-			<div class="visible-xs"><em><small class="form-text text-muted">umożliwia dostęp sieci lokalnej do internetu przez <span id="wan_lanto_interface2"></span></small></em></div>
+			<span class="hidden-xs control-label labelleft"><em><small class="form-text text-muted">允许通过以下方式访问本地网络<span id="wan_lanto_interface1"></span></small></em></span>
+			<div class="visible-xs"><em><small class="form-text text-muted">允许通过以下方式访问本地网络<span id="wan_lanto_interface2"></span></small></em></div>
 			</div>
 		</div>
 
 		<div class="form-group" id="div_firewall_dmz">
-			<label for="firewall_dmz" class="col-xs-4 col-sm-3 control-label">Adres IP w DMZ</label>
+			<label for="firewall_dmz" class="col-xs-4 col-sm-3 control-label">DMZ中的IP地址</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="firewall_dmz" type="text" class="form-control" onkeyup="proofreadIp(this)">
-			<em><small class="form-text text-muted">musi być z tej samej klasy co sieć lokalna</small></em>
+			<em><small class="form-text text-muted">必须与本地网络属于同一类</small></em>
 			</div>
 		</div>
 	</form>
 
-	<h3 class="section">Sieć lokalna</h3>
+	<h3 class="section">本地网络</h3>
 	<form class="form-horizontal">
 		<div class="form-group">
-			<label for="lan_ipaddr" class="col-xs-4 col-sm-3 control-label">Adres IP</label>
+			<label for="lan_ipaddr" class="col-xs-4 col-sm-3 control-label">IP地址</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="lan_ipaddr" type="text" class="form-control" onkeyup="proofreadIp(this)">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="lan_dhcp_enabled" class="col-xs-4 col-sm-3 control-label">Serwer DHCP włączony</label>
+			<label for="lan_dhcp_enabled" class="col-xs-4 col-sm-3 control-label">DHCP服务器已启用</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="lan_dhcp_enabled" type="checkbox">
@@ -461,7 +463,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="lan_forcedns" class="col-xs-4 col-sm-3 control-label">Przechwytywanie zapytań DNS</label>
+			<label for="lan_forcedns" class="col-xs-4 col-sm-3 control-label">DNS查询捕获</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="lan_forcedns" type="checkbox">
@@ -471,7 +473,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="dhcp_logqueries" class="col-xs-4 col-sm-3 control-label">Logowanie zapytań DNS</label>
+			<label for="dhcp_logqueries" class="col-xs-4 col-sm-3 control-label">记录DNS查询</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="dhcp_logqueries" type="checkbox">
@@ -481,7 +483,7 @@
 		</div>
 
 		<div class="form-group" id="div_wan_wanport">
-			<label for="wan_wanport" class="col-xs-4 col-sm-3 control-label">Port WAN dołączony do sieci lokalnej</label>
+			<label for="wan_wanport" class="col-xs-4 col-sm-3 control-label">连接到本地网络的WAN端口</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="wan_wanport" type="checkbox">
@@ -495,7 +497,7 @@
 	<h3 class="section" id="radio0">Wi-Fi</h3>
 	<form class="form-horizontal">
 		<div class="form-group">
-			<label for="wlan_enabled0" class="col-xs-4 col-sm-3 control-label">Wi-Fi włączone</label>
+			<label for="wlan_enabled0" class="col-xs-4 col-sm-3 control-label">已启用Wi-Fi</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="wlan_enabled0" type="checkbox">
@@ -505,7 +507,7 @@
 		</div>
 
 		<div class="form-group" id="div_wlan_txpower0">
-			<label for="wlan_txpower0" class="col-xs-4 col-sm-3 control-label">Moc nadawania</label>
+			<label for="wlan_txpower0" class="col-xs-4 col-sm-3 control-label">传输功率</label>
 			<div class="col-xs-8 col-sm-9">
 			<select id="wlan_txpower0" class="form-control">
 			<option value='100'>100%</option>
@@ -518,14 +520,14 @@
 		</div>
 
 		<div class="form-group">
-			<label for="wlan_ssid0" class="col-xs-4 col-sm-3 control-label">Nazwa sieci (SSID)</label>
+			<label for="wlan_ssid0" class="col-xs-4 col-sm-3 control-label">网络名称(SSID)</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="wlan_ssid0" type="text" class="form-control" onkeyup="proofreadLengthRange(this,1,32);">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="wlan_channel0" class="col-xs-4 col-sm-3 control-label">Kanał</label>
+			<label for="wlan_channel0" class="col-xs-4 col-sm-3 control-label">频道</label>
 			<div class="col-xs-8 col-sm-9">
 			<select id="wlan_channel0" class="form-control" onchange="enableWlanTXPower(this.value, 0);">
 			</select>
@@ -533,7 +535,7 @@
 		</div>
 
 		<div class="form-group" id="div_wlan_encryption0">
-			<label for="wlan_encryption0" class="col-xs-4 col-sm-3 control-label">Szyfrowanie</label>
+			<label for="wlan_encryption0" class="col-xs-4 col-sm-3 control-label">加密</label>
 			<div class="col-xs-8 col-sm-9">
 			<select id="wlan_encryption0" class="form-control" onchange="enableWlanEncryption(this.value, 0);">
 			</select>
@@ -541,14 +543,14 @@
 		</div>
 
 		<div class="form-group" id="div_wlan_key0">
-			<label for="wlan_key0" class="col-xs-4 col-sm-3 control-label click" onclick="showPassword('wlan_key0');">Hasło</label>
+			<label for="wlan_key0" class="col-xs-4 col-sm-3 control-label click" onclick="showPassword('wlan_key0');">密码</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="wlan_key0" type="password" class="form-control">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="wlan_isolate0" class="col-xs-4 col-sm-3 control-label">Izolacja klientów</label>
+			<label for="wlan_isolate0" class="col-xs-4 col-sm-3 control-label">客户端隔离</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="wlan_isolate0" type="checkbox">
@@ -563,7 +565,7 @@
 	<h3 class="section" id="radio1">Wi-Fi</h3>
 	<form class="form-horizontal">
 		<div class="form-group">
-			<label for="wlan_enabled1" class="col-xs-4 col-sm-3 control-label">Wi-Fi włączone</label>
+			<label for="wlan_enabled1" class="col-xs-4 col-sm-3 control-label">已启用Wi-Fi</label>
 			<div class="col-xs-8 col-sm-9">
 				<div class="row">
 					<div class="col-xs-6">
@@ -573,14 +575,14 @@
 					</label>
 					</div>
 					<label class="col-xs-6 control-label">
-						<span class="click" onclick="copywireless();">kopiuj z poprzedniej sieci</span>
+						<span class="click" onclick="copywireless();">从以前的网络复制</span>
 					</label>
 				</div>
 			</div>
 		</div>
 
 		<div class="form-group" id="div_wlan_txpower1">
-			<label for="wlan_txpower1" class="col-xs-4 col-sm-3 control-label">Moc nadawania</label>
+			<label for="wlan_txpower1" class="col-xs-4 col-sm-3 control-label">传输功率</label>
 			<div class="col-xs-8 col-sm-9">
 			<select id="wlan_txpower1" class="form-control">
 			<option value='100'>100%</option>
@@ -593,14 +595,14 @@
 		</div>
 
 		<div class="form-group">
-			<label for="wlan_ssid1" class="col-xs-4 col-sm-3 control-label">Nazwa sieci (SSID)</label>
+			<label for="wlan_ssid1" class="col-xs-4 col-sm-3 control-label">网络名称(SSID)</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="wlan_ssid1" type="text" class="form-control" onkeyup="proofreadLengthRange(this,1,32);">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="wlan_channel1" class="col-xs-4 col-sm-3 control-label">Kanał</label>
+			<label for="wlan_channel1" class="col-xs-4 col-sm-3 control-label">频道</label>
 			<div class="col-xs-8 col-sm-9">
 			<select id="wlan_channel1" class="form-control" onchange="enableWlanTXPower(this.value, 1);">
 			</select>
@@ -608,7 +610,7 @@
 		</div>
 
 		<div class="form-group" id="div_wlan_encryption1">
-			<label for="wlan_encryption1" class="col-xs-4 col-sm-3 control-label">Szyfrowanie</label>
+			<label for="wlan_encryption1" class="col-xs-4 col-sm-3 control-label">加密</label>
 			<div class="col-xs-8 col-sm-9">
 			<select id="wlan_encryption1" class="form-control" onchange="enableWlanEncryption(this.value, 1);">
 			</select>
@@ -616,14 +618,14 @@
 		</div>
 
 		<div class="form-group" id="div_wlan_key1">
-			<label for="wlan_key1" class="col-xs-4 col-sm-3 control-label click" onclick="showPassword('wlan_key1');">Hasło</label>
+			<label for="wlan_key1" class="col-xs-4 col-sm-3 control-label click" onclick="showPassword('wlan_key1');">密码</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="wlan_key1" type="password" class="form-control">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="wlan_isolate1" class="col-xs-4 col-sm-3 control-label">Izolacja klientów</label>
+			<label for="wlan_isolate1" class="col-xs-4 col-sm-3 control-label">客户端隔离</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="wlan_isolate1" type="checkbox">
@@ -634,31 +636,31 @@
 	</form>
 	</div>
 
-	<h3 class="section">System</h3>
+	<h3 class="section">系统</h3>
 	<form class="form-horizontal">
 		<div class="form-group">
-			<label for="password1" class="col-xs-4 col-sm-3 control-label click" onclick="showPassword('password1');">Nowe hasło</label>
+			<label for="password1" class="col-xs-4 col-sm-3 control-label click" onclick="showPassword('password1');">新密码</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="password1" type="password" class="form-control">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="password2" class="col-xs-4 col-sm-3 control-label click" onclick="showPassword('password2');">Potwierdź hasło</label>
+			<label for="password2" class="col-xs-4 col-sm-3 control-label click" onclick="showPassword('password2');">确认密码</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="password2" type="password" class="form-control">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="system_hostname" class="col-xs-4 col-sm-3 control-label">Nazwa systemu</label>
+			<label for="system_hostname" class="col-xs-4 col-sm-3 control-label">系统名称</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="system_hostname" type="text" class="form-control" onkeyup="proofreadHost(this)">
 			</div>
 		</div>
 
 		<div class="form-group" id="div_stat" style="display:none;">
-			<label for="stat_enabled" class="col-xs-4 col-sm-3 control-label">Wysyłanie statystyki</label>
+			<label for="stat_enabled" class="col-xs-4 col-sm-3 control-label">发送统计信息</label>
 			<div class="col-xs-8 col-sm-9">
 				<div class="row">
 					<div class="col-xs-6">
@@ -668,14 +670,14 @@
 						</label>
 					</div>
 					<label class="col-xs-6 control-label">
-					<a href="#" class="click" onclick="showstatistics();">zobacz statystykę &rarr;</a>
+					<a href="#" class="click" onclick="showstatistics();">统计数据 &rarr;</a>
 					</label>
 				</div>
 			</div>
 		</div>
 
 		<div class="form-group" id="div_button" style="display:none;">
-			<label for="system_button" class="col-xs-4 col-sm-3 control-label">Przycisk "<span id="system_button_name"></span>"</label>
+			<label for="system_button" class="col-xs-4 col-sm-3 control-label">按钮 "<span id="system_button_name"></span>"</label>
 			<div class="col-xs-8 col-sm-9">
 			<select id="system_button" class="form-control">
 			</select>
@@ -683,7 +685,7 @@
 		</div>
 
 		<div class="form-group" id="div_button_reset" style="display:none;">
-			<label for="system_button_reset" class="col-xs-4 col-sm-3 control-label">Aktywny przycisk reset</label>
+			<label for="system_button_reset" class="col-xs-4 col-sm-3 control-label">激活复位按钮</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="system_button_reset" type="checkbox">
@@ -693,21 +695,21 @@
 		</div>
 
 		<div class="form-group">
-			<label for="datarec_period" class="col-xs-4 col-sm-3 control-label">Okres zapisu danych</label>
+			<label for="datarec_period" class="col-xs-4 col-sm-3 control-label">数据保持期</label>
 			<div class="col-xs-8 col-sm-9">
 			<select id="datarec_period" class="form-control">
-			<option value='0'>wyłączone</option>
-			<option value='1'>1 minuta</option>
-			<option value='3'>3 minuty</option>
-			<option value='5'>5 minut</option>
-			<option value='10'>10 minut</option>
-			<option value='15'>15 minut</option>
-			<option value='30'>30 minut</option>
-			<option value='60'>1 godzina</option>
-			<option value='180'>3 godziny</option>
-			<option value='360'>6 godzin</option>
-			<option value='720'>12 godzin</option>
-			<option value='1440'>24 godziny</option>
+			<option value='0'>禁用</option>
+			<option value='1'>1分钟</option>
+			<option value='3'>3分钟</option>
+			<option value='5'>5分钟</option>
+			<option value='10'>10分钟</option>
+			<option value='15'>15分钟</option>
+			<option value='30'>30分钟</option>
+			<option value='60'>1小时</option>
+			<option value='180'>3小时</option>
+			<option value='360'>6小时</option>
+			<option value='720'>12小时</option>
+			<option value='1440'>24小时</option>
 			</select>
 			</div>
 		</div>
@@ -715,8 +717,8 @@
 
 	<h3 class="section"></h3>
 	<div class="text-center">
-		<input type="button" class="btn btn-default" onclick="showsettings();" value="Odśwież" />
-		<input type="button" class="btn btn-primary" onclick="savesettings();" value="Zapisz zmiany" />
+		<input type="button" class="btn btn-default" onclick="showsettings();" value="刷新" />
+		<input type="button" class="btn btn-primary" onclick="savesettings();" value="保存更改" />
 	</div>
 
 	</div>
@@ -726,19 +728,19 @@
 	<div id="div_system_modem" style="display:none;">
 		<h3 class="section">Modem</h3>
 		<div class="row">
-			<label class="col-xs-6 text-right">Producent</label>
+			<label class="col-xs-6 text-right">生产商</label>
 			<div class="col-xs-6">
 			<p id="modem_vendor">-</p>
 			</div>
 		</div>
 		<div class="row">
-			<label class="col-xs-6 text-right">Model</label>
+			<label class="col-xs-6 text-right">型号</label>
 			<div class="col-xs-6">
 			<p id="modem_model">-</p>
 		</div>
 		</div>
 		<div class="row">
-			<label class="col-xs-6 text-right">Wersja</label>
+			<label class="col-xs-6 text-right">版本</label>
 			<div class="col-xs-6">
 			<p id="modem_revision">-</p>
 			</div>
@@ -750,54 +752,56 @@
 			</div>
 		</div>
 		<div class="row">
-			<label class="col-xs-6 text-right">Numer karty SIM (ICCID)</label>
+			<label class="col-xs-6 text-right">SIM卡号码(ICCID)</label>
 			<div class="col-xs-6">
 			<p id="modem_iccid">-</p>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-6 col-xs-offset-6">
-			<p><a href="#" class="click" onclick="modemsettings();">ustawienia dodatkowe</a></p>
+			<p><a href="#" class="click" onclick="modemsettings();">其他设置</a></p>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-6 col-xs-offset-6">
-			<p><a href="#" class="click" onclick="modemat();">polecenia AT</a></p>
+			<p><a href="#" class="click" onclick="modemat();">AT命令</a></p>
 			</div>
 		</div>
 		<div class="row">
 			<div id="menu_modembands" class="col-xs-6 col-xs-offset-6"  style="display:none;">
-			<p><a href="#" class="click" onclick="modembands();">pasma LTE</a></p>
+			<p><a href="#" class="click" onclick="modembands();">LTE频段
+
+</a></p>
 			</div>
 		</div>
 	</div>
 
-	<h3 class="section">System</h3>
+	<h3 class="section">系统</h3>
 	<div class="row">
-		<label class="col-xs-6 text-right">Model</label>
+		<label class="col-xs-6 text-right">型号</label>
 		<div class="col-xs-6">
 		<p id="model">-</p>
 		</div>
 	</div>
 
 	<div class="row">
-		<label class="col-xs-6 text-right">Wersja oprogramowania</label>
+		<label class="col-xs-6 text-right">软件版本</label>
 		<div class="col-xs-6">
 		<p id="firmware_version">-</p>
 		</div>
 	</div>
 
 	<div class="row">
-		<label class="col-xs-6 text-right">Restart urządzenia</label>
+		<label class="col-xs-6 text-right">重启设备</label>
 		<div class="col-xs-6">
-		<input type="button" class="btn btn-default" onclick="btn_system_reboot();" value="Restart" title="Ponowne uruchomienie urządzenia" />
+		<input type="button" class="btn btn-default" onclick="btn_system_reboot();" value="重新启动" title="重新启动设备" />
 		</div>
 	</div>
 
-	<h3 class="section">Interfejs użytkownika</h3>
+	<h3 class="section">用户界面</h3>
 
 	<div class="row">
-		<label class="col-xs-6 text-right">Wersja GUI</label>
+		<label class="col-xs-6 text-right">GUI版本</label>
 		<div class="col-xs-6">
 		<p id="gui_version">-</p>
 		</div>
@@ -805,7 +809,7 @@
 
 	<form class="form-horizontal">
 		<div class="form-group">
-			<label for="darkmode_enabled" class="col-xs-6 control-label">Tryb ciemny</label>
+			<label for="darkmode_enabled" class="col-xs-6 control-label">黑暗模式</label>
 			<div class="col-xs-6">
 			<label class="switch">
 				<input id="darkmode_enabled" type="checkbox" onclick="darkmode();">
@@ -816,7 +820,7 @@
 	</form>
 
 	<div id="div_upgrade" style="display:none;">
-		<h3 class="section">Aktualizacja</h3>
+		<h3 class="section">更新</h3>
 
 		<form class="form-horizontal">
 		<input id="upgrade_url" type="hidden">
@@ -827,22 +831,22 @@
 		</div>
 
 		<div class="form-group" id="div_upgrade_step1" style="display:block;">
-			<label class="col-xs-6 text-right">Dostępność aktualizacji</label>
+			<label class="col-xs-6 text-right">提供更新</label>
 			<div class="col-xs-6">
-			<input type="button" class="btn btn-default" onclick="upgrade_step1();" value="Sprawdź" />
+			<input type="button" class="btn btn-default" onclick="upgrade_step1();" value="检查" />
 			</div>
 		</div>
 
 		<div class="form-group" id="div_upgrade_step2" style="display:none;">
-			<label class="col-xs-6 text-right">Pobieranie aktualizacji</label>
+			<label class="col-xs-6 text-right">下载更新</label>
 			<div class="col-xs-6">
-			<input type="button" class="btn btn-default" onclick="upgrade_step2();" value="Pobierz" />
+			<input type="button" class="btn btn-default" onclick="upgrade_step2();" value="下载" />
 			</div>
 		</div>
 
 		<div id="div_upgrade_step3" style="display:none;">
 			<div class="form-group">
-				<label for="upgrade_preserve_settings" class="col-xs-6 control-label">Zachowaj ustawienia</label>
+				<label for="upgrade_preserve_settings" class="col-xs-6 control-label">保存设置</label>
 				<div class="col-xs-6">
 				<label class="switch">
 					<input id="upgrade_preserve_settings" type="checkbox">
@@ -852,22 +856,22 @@
 			</div>
 			<div class="form-group">
 				<div class="col-xs-6 col-xs-offset-6">
-				<input type="button" class="btn btn-default" onclick="upgrade_step3();" value="Aktualizacja" />
+				<input type="button" class="btn btn-default" onclick="upgrade_step3();" value="更新" />
 				</div>
 			</div>
 		</div>
 		</form>
 	</div>
 
-	<h3 class="section">Pomoc</h3>
+	<h3 class="section">援助</h3>
 	<div class="row">
 		<div class="col-xs-6 col-xs-offset-6">
-			<p><a href="https://eko.one.pl/?p=easyconfig" class="click" target="_blank">opis funkcji &rarr;</a></p>
+			<p><a href="https://eko.one.pl/?p=easyconfig" class="click" target="_blank">功能说明 &rarr;</a></p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-xs-6 col-xs-offset-6">
-			<p><a href="https://eko.one.pl/forum" class="click" target="_blank">forum &rarr;</a></p>
+			<p><a href="https://eko.one.pl/forum" class="click" target="_blank">论坛 &rarr;</a></p>
 		</div>
 	</div>
 
@@ -875,31 +879,31 @@
 
 	<div id="div_watchdog" style="display:none;">
 
-	<h3 class="section">Monitor połączenia</h3>
+	<h3 class="section">连接状态</h3>
 	<div class="alert alert-warning" id="watchdog_enabled_info">
-		<strong>UWAGA!</strong> Połączenie z internetem jest wyłączone. <a href="#" class="click" onclick="btn_pages('settings');">Kliknij tutaj aby ustawić połączenie &rarr;</a>
+		<strong>注意!</strong> 互联网连接被禁用. <a href="#" class="click" onclick="btn_pages('settings');">点击这里建立连接 &rarr;</a>
 	</div>
 
 	<div class="row">
-		<label class="col-xs-6 text-right">Ostatnie sprawdzenie</label>
+		<label class="col-xs-6 text-right">最后的检查</label>
 		<div class="col-xs-6">
 		<p id="watchdog_rundate">-</p>
 		</div>
 	</div>
 	<div class="row">
-		<label class="col-xs-6 text-right">minimum</label>
+		<label class="col-xs-6 text-right">最低</label>
 		<div class="col-xs-6">
 		<p id="watchdog_min">0</p>
 		</div>
 	</div>
 	<div class="row">
-		<label class="col-xs-6 text-right">średnia</label>
+		<label class="col-xs-6 text-right">平均</label>
 		<div class="col-xs-6">
 		<p id="watchdog_avg">0</p>
 		</div>
 	</div>
 	<div class="row">
-		<label class="col-xs-6 text-right">maksimum</label>
+		<label class="col-xs-6 text-right">最大</label>
 		<div class="col-xs-6">
 		<p id="watchdog_max">0</p>
 		</div>
@@ -908,7 +912,7 @@
 	<h3 class="section"></h3>
 	<form class="form-horizontal">
 		<div class="form-group" id="div_watchdog_enabled">
-			<label for="watchdog_enabled" class="col-xs-4 col-sm-3 control-label">Włączony</label>
+			<label for="watchdog_enabled" class="col-xs-4 col-sm-3 control-label">启用</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="watchdog_enabled" type="checkbox">
@@ -918,30 +922,32 @@
 		</div>
 
 		<div class="form-group" id="div_watchdog_delay">
-			<label for="watchdog_delay" class="col-xs-4 col-sm-3 control-label">Opóźnienie przy starcie systemu</label>
+			<label for="watchdog_delay" class="col-xs-4 col-sm-3 control-label">系统启动延迟
+
+</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="watchdog_delay" type="text" class="form-control" onkeyup="proofreadNumericRange(this,1,59)">
-			<em><small class="form-text text-muted">[1 - 59] minut</small></em>
+			<em><small class="form-text text-muted">[1 - 59] 分钟</small></em>
 			</div>
 		</div>
 
 		<div class="form-group" id="div_watchdog_dest">
-			<label for="watchdog_dest" class="col-xs-4 col-sm-3 control-label">Adres lub nazwa</label>
+			<label for="watchdog_dest" class="col-xs-4 col-sm-3 control-label">地址名字</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="watchdog_dest" type="text" class="form-control" onkeyup="proofreadHost(this)">
 			</div>
 		</div>
 
 		<div class="form-group" id="div_watchdog_period">
-			<label for="watchdog_period" class="col-xs-4 col-sm-3 control-label">Okres sprawdzenia</label>
+			<label for="watchdog_period" class="col-xs-4 col-sm-3 control-label">验证周期</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="watchdog_period" type="text" class="form-control" onkeyup="proofreadNumericRange(this,1,59)">
-			<em><small class="form-text text-muted">[1 - 59] minut</small></em>
+			<em><small class="form-text text-muted">[1 - 59] 分钟</small></em>
 			</div>
 		</div>
 
 		<div class="form-group" id="div_watchdog_period_count">
-			<label for="watchdog_period_count" class="col-xs-4 col-sm-3 control-label">Liczba nieudanych sprawdzeń</label>
+			<label for="watchdog_period_count" class="col-xs-4 col-sm-3 control-label">失败测试的数量</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="watchdog_period_count" type="text" class="form-control" onkeyup="proofreadNumericRange(this,1,59)">
 			<em><small class="form-text text-muted">[1 - 59]</small></em>
@@ -949,18 +955,18 @@
 		</div>
 
 		<div class="form-group" id="div_watchdog_action">
-			<label for="watchdog_action" class="col-xs-4 col-sm-3 control-label">Akcja</label>
+			<label for="watchdog_action" class="col-xs-4 col-sm-3 control-label">活动</label>
 			<div class="col-xs-8 col-sm-9">
 			<select id="watchdog_action" class="form-control">
-			<option value='wan'>Ponowne uruchomienie połączenia z internetem</option>
-			<option value='reboot'>Ponowne uruchomienie urządzenia</option>
+			<option value='wan'>重新启动Internet连接</option>
+			<option value='reboot'>重新启动设备</option>
 			</select>
 			</div>
 		</div>
 
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-primary" onclick="savewatchdog();" value="Zapisz zmiany" />
+			<input type="button" class="btn btn-primary" onclick="savewatchdog();" value="保存应用" />
 		</div>
 
 	</form>
@@ -969,67 +975,67 @@
 
 	<div id="div_sitesurvey" style="display:none;">
 
-	<h3 class="section">Sieci Wi-Fi</h3>
+	<h3 class="section">Wi-Fi网络</h3>
 	<div id="div_sitesurvey_content">
-		<div class="alert">Pobieranie danych...</div>
+		<div class="alert">正在下载数据...</div>
 	</div>
 	<h3 class="section"></h3>
 	<div class="text-center">
-		<input type="button" class="btn btn-default" onclick="showsitesurvey();" value="Odśwież" />
+		<input type="button" class="btn btn-default" onclick="showsitesurvey();" value="刷新" />
 	</div>
 
 	</div>
 
 	<div id="div_clients" style="display:none;">
 
-	<h3 class="section">Klienci</h3>
+	<h3 class="section">客户</h3>
 	<div id="div_clients_content">
-		<div class="alert">Pobieranie danych...</div>
+		<div class="alert">下载数据...</div>
 	</div>
 	<h3 class="section"></h3>
 	<div class="text-center">
-		<input type="button" class="btn btn-default" onclick="showclients();" value="Odśwież" />
+		<input type="button" class="btn btn-default" onclick="showclients();" value="刷新" />
 	</div>
 
 	</div>
 
 	<div id="div_clientslogs" style="display:none;">
 
-	<h3 class="section">Historia połączeń</h3>
+	<h3 class="section">调用历史</h3>
 	<div id="div_clientslogs_content">
-		<div class="alert">Pobieranie danych...</div>
+		<div class="alert">数据检索...</div>
 	</div>
 	<input id="clientslogs_mac" type="hidden">
 	<h3 class="section"></h3>
 	<div class="text-center">
-		<input type="button" class="btn btn-default" onclick="showclientslogs();" value="Odśwież" />
+		<input type="button" class="btn btn-default" onclick="showclientslogs();" value="刷新" />
 	</div>
 
 	</div>
 
 	<div id="div_queries" style="display:none;">
 
-	<h3 class="section">Zapytania DNS</h3>
+	<h3 class="section">DNS查询</h3>
 	<div id="div_queries_content">
-		<div class="alert">Pobieranie danych...</div>
+		<div class="alert">正在下载数据...</div>
 	</div>
 	<input id="queries_host" type="hidden">
 	<h3 class="section"></h3>
 	<div class="text-center">
-		<input type="button" class="btn btn-default" onclick="showqueries();" value="Odśwież" />
+		<input type="button" class="btn btn-default" onclick="showqueries();" value="刷新" />
 	</div>
 
 	</div>
 
 	<div id="div_traffic" style="display:none;">
 
-	<h3 class="section">Transfer</h3>
+	<h3 class="section">传输</h3>
 	<div class="alert alert-info text-center">
-		Wyliczenia mogą się różnić od wskazań operatora
+		计算结果可能与操作人员的指示不同
 	</div>
 
 	<div class="row">
-		<label for="traffic_today" class="col-xs-6 text-right">Dziś</label>
+		<label for="traffic_today" class="col-xs-6 text-right">今天</label>
 		<div class="col-xs-6">
 		<p><span id="traffic_today">0</span><small><span class="visible-xs oneline"></span><span id="traffic_today_progress"></span></small></p>
 		</div>
@@ -1042,37 +1048,37 @@
 		</div>
 	</div>
 	<div class="row">
-		<label for="traffic_yesterday" class="col-xs-6 text-right">Wczoraj</label>
+		<label for="traffic_yesterday" class="col-xs-6 text-right">昨天</label>
 		<div class="col-xs-6">
 		<p id="traffic_yesterday">0</p>
 		</div>
 	</div>
 	<div class="row">
-		<label for="traffic_last7d" class="col-xs-6 text-right">Ostatnie 7 dni</label>
+		<label for="traffic_last7d" class="col-xs-6 text-right">最后七天</label>
 		<div class="col-xs-6">
 		<p id="traffic_last7d">0</p>
 		</div>
 	</div>
 	<div class="row">
-		<label for="traffic_last30d" class="col-xs-6 text-right">Ostatnie 30 dni</label>
+		<label for="traffic_last30d" class="col-xs-6 text-right">过去30天</label>
 		<div class="col-xs-6">
 		<p id="traffic_last30d">0</p>
 		</div>
 	</div>
 	<div class="row space">
-		<label for="traffic_total" class="col-xs-6 text-right">Łącznie</label>
+		<label for="traffic_total" class="col-xs-6 text-right">全部</label>
 		<div class="col-xs-6">
 		<p><span id="traffic_total">0</span><span class="visible-xs oneline"></span><small><span id="traffic_total_since"></span></small></p>
 		</div>
 	</div>
 	<div class="row">
-		<label class="col-xs-6 text-right">Dni do końca okresu rozliczeniowego</label>
+		<label class="col-xs-6 text-right">距会计期结束的天数</label>
 		<div class="col-xs-6">
 		<p id="traffic_currentperiod_daysleft">0</p>
 		</div>
 	</div>
 	<div class="row">
-		<label class="col-xs-6 text-right">Bieżący okres rozliczeniowy</label>
+		<label class="col-xs-6 text-right">本期会计期间</label>
 		<div class="col-xs-6">
 		<p><span id="traffic_currentperiod">0</span><span class="visible-xs oneline"></span><small><span id="traffic_currentperiod_progress"></span></small></p>
 		</div>
@@ -1085,7 +1091,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<label class="col-xs-6 text-right">Poprzedni okres rozliczeniowy</label>
+		<label class="col-xs-6 text-right">上一会计期间</label>
 		<div class="col-xs-6">
 		<p id="traffic_lastperiod">0</p>
 		</div>
@@ -1093,15 +1099,15 @@
 
 	<h3 class="section"></h3>
 	<div class="text-center">
-		<input type="button" class="btn btn-default" onclick="removetraffic();" value="Usuń dane" />
-		<input type="button" class="btn btn-default" onclick="showtraffic();" value="Odśwież" />
+		<input type="button" class="btn btn-default" onclick="removetraffic();" value="删除数据" />
+		<input type="button" class="btn btn-default" onclick="showtraffic();" value="刷新" />
 	</div>
 
 	<h3 class="section"></h3>
 
 	<form class="form-horizontal">
 		<div class="form-group">
-			<label for="traffic_cycle" class="col-xs-4 col-sm-3 control-label">Początek okresu rozliczeniowego</label>
+			<label for="traffic_cycle" class="col-xs-4 col-sm-3 control-label">会计期间开始</label>
 			<div class="col-xs-8 col-sm-9">
 			<select id="traffic_cycle" class="form-control">
 			<option value='1'>1</option>
@@ -1136,12 +1142,12 @@
 			<option value='30'>30</option>
 			<option value='31'>31</option>
 			</select>
-			<em><small class="form-text text-muted">dzień miesiąca</small></em>
+			<em><small class="form-text text-muted">年月日</small></em>
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="traffic_warning_enabled" class="col-xs-4 col-sm-3 control-label">Ostrzeżenie włączone</label>
+			<label for="traffic_warning_enabled" class="col-xs-4 col-sm-3 control-label">已启用警告</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="traffic_warning_enabled" type="checkbox">
@@ -1151,7 +1157,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="traffic_warning_value" class="col-xs-4 col-sm-3 control-label">Poziom ostrzeżenia</label>
+			<label for="traffic_warning_value" class="col-xs-4 col-sm-3 control-label">警告级别</label>
 			<div class="col-xs-8 col-sm-9">
 
 			<div class="row">
@@ -1167,8 +1173,8 @@
 			</div>
 			<div class="col-sm-4">
 				<select id="traffic_warning_cycle" class="form-control">
-				<option value='d'>dziennie</option>
-				<option value='p'>na okres</option>
+				<option value='d'>每天</option>
+				<option value='p'>有一段时间</option>
 				</select>
 			</div>
 			</div>
@@ -1178,7 +1184,7 @@
 
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-primary" onclick="savetraffic();" value="Zapisz zmiany" />
+			<input type="button" class="btn btn-primary" onclick="savetraffic();" value="保存更改" />
 		</div>
 
 	</form>
@@ -1199,14 +1205,14 @@
 		</div>
 
 		<div class="form-group">
-			<label for="ussd_code" class="col-xs-4 col-sm-3 control-label">Kod USSD</label>
+			<label for="ussd_code" class="col-xs-4 col-sm-3 control-label">USSD代码</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="ussd_code" type="text" class="form-control" onkeyup="proofreadussd(this)">
 			</div>
 		</div>
 
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="sendussd();" value="Wyślij" />
+			<input type="button" class="btn btn-default" onclick="sendussd();" value="发送" />
 		</div>
 	</form>
 
@@ -1214,28 +1220,28 @@
 
 	<form class="form-horizontal">
 		<div class="form-group">
-			<label for="sms_number" class="col-xs-4 col-sm-3 control-label">Numer telefonu</label>
+			<label for="sms_number" class="col-xs-4 col-sm-3 control-label">电话号码</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="sms_number" type="text" class="form-control" onkeyup="proofreadNumeric(this)">
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="sms_msg" class="col-xs-4 col-sm-3 control-label">Treść wiadomości</label>
+			<label for="sms_msg" class="col-xs-4 col-sm-3 control-label">消息内容</label>
 			<div class="col-xs-8 col-sm-9">
 			<textarea id="sms_msg" class="form-control" rows="4" onkeyup="proofreadSMSText(this)"></textarea>
-			<em><small class="form-text text-muted">pozostało znaków: <span id="sms_len">160</span></small></em>
+			<em><small class="form-text text-muted">剩余字符: <span id="sms_len">160</span></small></em>
 			</div>
 		</div>
 
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="sendsms();" value="Wyślij" />
+			<input type="button" class="btn btn-default" onclick="sendsms();" value="发送" />
 		</div>
 	</form>
 
 	<div id="div_sms_content"></div>
 	<h3 class="section"></h3>
 	<div class="text-center">
-		<input type="button" class="btn btn-default" onclick="readsms();" value="Odśwież" />
+		<input type="button" class="btn btn-default" onclick="readsms();" value="刷新" />
 	</div>
 
 	</div>
@@ -1246,42 +1252,42 @@
 
 		<form class="form-horizontal">
 			<div class="form-group">
-				<label for="vpn_killswitch" class="col-xs-6 control-label">Killswitch</label>
+				<label for="vpn_killswitch" class="col-xs-6 control-label">终止开关</label>
 				<div class="col-xs-6">
 				<label class="switch">
 					<input id="vpn_killswitch" type="checkbox">
 					<div class="slider round"></div>
 				</label>
-				<span class="hidden-xs control-label labelleft"><em><small class="form-text text-muted">blokada dostępu do internetu bez połączenia VPN</small></em></span>
-				<div class="visible-xs"><em><small class="form-text text-muted">blokada dostępu do internetu bez połączenia VPN</small></em></div>
+				<span class="hidden-xs control-label labelleft"><em><small class="form-text text-muted">在没有VPN连接的情况下阻止互联网访问</small></em></span>
+				<div class="visible-xs"><em><small class="form-text text-muted">在没有VPN连接的情况下阻止互联网访问</small></em></div>
 				</div>
 			</div>
 		</form>
 
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="savevpnkillswitch();" value="Zapisz" />
+			<input type="button" class="btn btn-default" onclick="savevpnkillswitch();" value="保存" />
 		</div>
 
 		<hr>
 
 		<div id="div_vpn_content">
-			<div class="alert alert-warning">Brak sieci VPN</div>
+			<div class="alert alert-warning">没有VPN</div>
 		</div>
 
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="addvpn();" value="Nowy" />
-			<input type="button" class="btn btn-default" onclick="showvpn();" value="Odśwież" />
+			<input type="button" class="btn btn-default" onclick="addvpn();" value="新的" />
+			<input type="button" class="btn btn-default" onclick="showvpn();" value="刷新" />
 		</div>
 	</div>
 
 	<div id="div_adblock" style="display:none;">
 
-	<h3 class="section">Blokada domen</h3>
+	<h3 class="section">区域锁</h3>
 
 	<div id="div_adblock_adblock" style="display:none;">
 	<div class="row">
-		<label class="col-xs-6 text-right">Liczba blokowanych domen</label>
+		<label class="col-xs-6 text-right">被阻止的域数量</label>
 		<div class="col-xs-6">
 		<p id="adblock_domains">-</p>
 		</div>
@@ -1290,7 +1296,7 @@
 	<h3 class="section"></h3>
 	<form class="form-horizontal">
 		<div class="form-group" id="div_adblock_enabled">
-			<label for="adblock_enabled" class="col-xs-4 col-sm-3 control-label">Włączona</label>
+			<label for="adblock_enabled" class="col-xs-4 col-sm-3 control-label">启用</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="adblock_enabled" type="checkbox">
@@ -1300,7 +1306,7 @@
 		</div>
 
 		<div class="form-group" id="div_adblock_forcedns">
-			<label for="adblock_forcedns" class="col-xs-4 col-sm-3 control-label">Przechwytywanie zapytań DNS</label>
+			<label for="adblock_forcedns" class="col-xs-4 col-sm-3 control-label">DNS查询捕获</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="adblock_forcedns" type="checkbox">
@@ -1313,8 +1319,8 @@
 
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="showadblock();" value="Odśwież" />
-			<input type="button" class="btn btn-primary" onclick="saveadblock();" value="Zapisz zmiany" />
+			<input type="button" class="btn btn-default" onclick="showadblock();" value="刷新" />
+			<input type="button" class="btn btn-primary" onclick="saveadblock();" value="保存更改" />
 		</div>
 	</form>
 	</div>
@@ -1322,7 +1328,7 @@
 	<div id="div_adblock_easyconfig" style="display:none;">
 	<form class="form-horizontal">
 		<div class="form-group">
-			<label for="adblock_enabled_easyconfig" class="col-xs-4 col-sm-3 control-label">Włączona</label>
+			<label for="adblock_enabled_easyconfig" class="col-xs-4 col-sm-3 control-label">启用</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="adblock_enabled_easyconfig" type="checkbox">
@@ -1333,30 +1339,30 @@
 
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="showadblock();" value="Odśwież" />
-			<input type="button" class="btn btn-primary" onclick="saveadblock_easyconfig();" value="Zapisz zmiany" />
+			<input type="button" class="btn btn-default" onclick="showadblock();" value="刷新" />
+			<input type="button" class="btn btn-primary" onclick="saveadblock_easyconfig();" value="保存更改" />
 		</div>
 	</form>
 	</div>
 
-	<h3 class="section">Własna lista domen</h3>
+	<h3 class="section">自定义域列表</h3>
 	<form class="form-horizontal">
 		<div class="form-group" id="div_adblock_domain">
-			<label for="adblock_domain" class="col-xs-4 col-sm-3 control-label">Domena</label>
+			<label for="adblock_domain" class="col-xs-4 col-sm-3 control-label">范围</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="adblock_domain" type="text" class="form-control" onkeyup="proofreadHost(this)">
 			</div>
 		</div>
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="whitelistdomain();" value="Zezwalaj" />
-			<input type="button" class="btn btn-default" onclick="blacklistdomain();" value="Blokuj" />
-			<input type="button" class="btn btn-default" style="display:none;" id="adblock_btn_check" onclick="checkdomain();" value="Sprawdź" />
+			<input type="button" class="btn btn-default" onclick="whitelistdomain();" value="允许" />
+			<input type="button" class="btn btn-default" onclick="blacklistdomain();" value="Block" />
+			<input type="button" class="btn btn-default" style="display:none;" id="adblock_btn_check" onclick="checkdomain();" value="检查" />
 		</div>
 	</form>
-	<h3 class="section">Domeny blokowane (czarna lista)</h3>
+	<h3 class="section">被阻止的域（黑名单）</h3>
 	<div id="div_adblock_list_blacklist"></div>
-	<h3 class="section">Domeny dozwolone (biała lista)</h3>
+	<h3 class="section">允许的域（白名单）</h3>
 	<div id="div_adblock_list_whitelist"></div>
 	</div>
 
@@ -1365,30 +1371,30 @@
 	<div id="div_nightmode_wlan">
 		<h3 class="section">Wi-Fi</h3>
 		<div class="row space">
-			<label class="col-xs-6 text-right">Włączenie Wi-Fi</label>
+			<label class="col-xs-6 text-right">启用Wi-Fi</label>
 			<div class="col-xs-6">
-			<input type="button" class="btn btn-default" onclick="btn_nightmode_wifi_on();" value="Włącz" />
+			<input type="button" class="btn btn-default" onclick="btn_nightmode_wifi_on();" value="启用" />
 			</div>
 		</div>
 		<div class="row">
-			<label class="col-xs-6 text-right">Wyłączenie Wi-Fi</label>
+			<label class="col-xs-6 text-right">禁用Wi-Fi</label>
 			<div class="col-xs-6">
-			<input type="button" class="btn btn-default" onclick="btn_nightmode_wifi_off();" value="Wyłącz" />
+			<input type="button" class="btn btn-default" onclick="btn_nightmode_wifi_off();" value="禁用" />
 			</div>
 		</div>
 	</div>
 
-	<h3 class="section">Diody LED</h3>
+	<h3 class="section">指示灯LED</h3>
 	<div class="row space">
-		<label class="col-xs-6 text-right">Włączenie LED</label>
+		<label class="col-xs-6 text-right">LED亮起</label>
 		<div class="col-xs-6">
-		<input type="button" class="btn btn-default" onclick="btn_nightmode_leds_on();" value="Włącz" />
+		<input type="button" class="btn btn-default" onclick="btn_nightmode_leds_on();" value="启用" />
 		</div>
 	</div>
 	<div class="row space">
-		<label class="col-xs-6 text-right">Wyłączenie LED</label>
+		<label class="col-xs-6 text-right">禁用LED</label>
 		<div class="col-xs-6">
-		<input type="button" class="btn btn-default" onclick="btn_nightmode_leds_off();" value="Wyłącz" />
+		<input type="button" class="btn btn-default" onclick="btn_nightmode_leds_off();" value="禁用" />
 		</div>
 	</div>
 
@@ -1396,7 +1402,7 @@
 	<hr>
 	<form class="form-horizontal">
 		<div class="form-group">
-			<label for="nightmode_led_auto_enabled" class="col-xs-4 col-sm-3 control-label">Automatyczny tryb nocny</label>
+			<label for="nightmode_led_auto_enabled" class="col-xs-4 col-sm-3 control-label">自动夜间模式</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="nightmode_led_auto_enabled" type="checkbox">
@@ -1406,14 +1412,14 @@
 		</div>
 
 		<div class="form-group" id="div_nightmode_led_auto_latitude">
-			<label for="nightmode_led_auto_latitude" class="col-xs-4 col-sm-3 control-label">Szerokość geograficzna</label>
+			<label for="nightmode_led_auto_latitude" class="col-xs-4 col-sm-3 control-label">纬度</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="nightmode_led_auto_latitude" type="text" class="form-control" onkeyup="proofreadFloat(this)">
 			</div>
 		</div>
 
 		<div class="form-group" id="div_nightmode_led_auto_longitude">
-			<label for="nightmode_led_auto_longitude" class="col-xs-4 col-sm-3 control-label">Długość geograficzna</label>
+			<label for="nightmode_led_auto_longitude" class="col-xs-4 col-sm-3 control-label">经度</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="nightmode_led_auto_longitude" type="text" class="form-control" onkeyup="proofreadFloat(this)">
 			<em><small class="form-text text-muted"><span id="nightmode_led_auto_note"></span></small></em>
@@ -1421,27 +1427,27 @@
 		</div>
 
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="btn_nightmode_getlocation();" value="Sprawdź" />
+			<input type="button" class="btn btn-default" onclick="btn_nightmode_getlocation();" value="检测" />
 		</div>
 	</form>
 	<h3 class="section"></h3>
 	<div class="text-center">
-		<input type="button" class="btn btn-primary" onclick="savenightmode();" value="Zapisz zmiany" />
+		<input type="button" class="btn btn-primary" onclick="savenightmode();" value="保存应用" />
 	</div>
 	</div>
 
 	</div>
 
 	<div id="div_gps" style="display:none;">
-		<h3 class="section">Pozycja GPS</h3>
+		<h3 class="section">位置GPS</h3>
 		<div class="row">
-			<label class="col-xs-6 text-right">Czas odczytu</label>
+			<label class="col-xs-6 text-right">阅读时间</label>
 			<div class="col-xs-6">
 			<p id="gps_fixtime">-</p>
 			</div>
 		</div>
 		<div class="row">
-			<label class="col-xs-6 text-right">Szerokość geograficzna</label>
+			<label class="col-xs-6 text-right">纬度</label>
 			<div class="col-xs-6">
 			<p id="gps_latitude">-<p>
 			</div>
@@ -1450,7 +1456,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<label class="col-xs-6 text-right">Długość geograficzna</label>
+			<label class="col-xs-6 text-right">经度</label>
 			<div class="col-xs-6">
 			<p id="gps_longitude">-</p>
 			</div>
@@ -1459,19 +1465,19 @@
 			</div>
 		</div>
 		<div class="row">
-			<label class="col-xs-6 text-right">Wysokość</label>
+			<label class="col-xs-6 text-right">高度</label>
 			<div class="col-xs-6">
 			<p id="gps_elevation">-</p>
 			</div>
 		</div>
 		<div class="row">
-			<label class="col-xs-6 text-right">Kierunek</label>
+			<label class="col-xs-6 text-right">方向</label>
 			<div class="col-xs-6">
 			<p id="gps_course">-</p>
 			</div>
 		</div>
 		<div class="row space">
-			<label class="col-xs-6 text-right">Szybkość</label>
+			<label class="col-xs-6 text-right">速度</label>
 			<div class="col-xs-6">
 			<p id="gps_speed">-</p>
 			</div>
@@ -1485,20 +1491,20 @@
 
 <div id="div_msg" class="modal">
 	<div id="msgtxt" class="modal-content text-center">
-		Proszę czekać...
+		请稍候...
 	</div>
 </div>
 
 <div id="div_hostname" class="modal">
 	<div class="row modal-content">
 		<div class="text-center space">
-			Zmiana nazwy dla "<span id="hostname_name1"></span>"
+			重命名 "<span id="hostname_name1"></span>"
 		</div>
 
 		<form class="form-horizontal">
 		<div class="form-group">
-			<label for="hostname_name" class="hidden-xs col-sm-3 control-label">Nowa nazwa</label>
-			<label for="hostname_name" class="visible-xs col-xs-12 control-label text-left">Nowa nazwa</label>
+			<label for="hostname_name" class="hidden-xs col-sm-3 control-label">新名称</label>
+			<label for="hostname_name" class="visible-xs col-xs-12 control-label text-left">新名称</label>
 			<div class="col-xs-12 col-sm-9">
 			<input id="hostname_name" type="text" class="form-control space">
 			</div>
@@ -1508,8 +1514,8 @@
 
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="cancelhostname();" value="Anuluj" />
-			<input type="button" class="btn btn-primary" onclick="savehostname();" value="Zapisz zmiany" />
+			<input type="button" class="btn btn-default" onclick="cancelhostname();" value="取消" />
+			<input type="button" class="btn btn-primary" onclick="savehostname();" value="保存更改" />
 		</div>
 	</div>
 </div>
@@ -1517,20 +1523,20 @@
 <div id="div_hostip" class="modal">
 	<div class="row modal-content">
 		<div class="text-center space">
-			Statyczny adres IP dla "<span id="hostip_name"></span>"
+			静态IP地址 "<span id="hostip_name"></span>"
 		</div>
 
 		<form class="form-horizontal">
 		<div class="form-group">
-			<label for="hostip_ip" class="hidden-xs col-sm-3 control-label">Statyczny adres IP</label>
-			<label for="hostip_ip" class="visible-xs col-xs-12 control-label text-left">Statyczny adres IP</label>
+			<label for="hostip_ip" class="hidden-xs col-sm-3 control-label">静态IP地址</label>
+			<label for="hostip_ip" class="visible-xs col-xs-12 control-label text-left">静态IP地址</label>
 			<div class="col-xs-12 col-sm-9">
 			<input id="hostip_ip" type="text" class="form-control space" onkeyup="proofreadIp(this)">
-			<em><small class="form-text text-muted">obecny statyczny adres IP: <span id="hostip_ipaddr"></span></small></em>
+			<em><small class="form-text text-muted">当前静态IP地址: <span id="hostip_ipaddr"></span></small></em>
 			</div>
 		</div>
 		<div class="form-group mmarginbottom">
-			<label for="hostip_disconnect" class="col-xs-4 col-sm-3 control-label">Rozłącz klienta</label>
+			<label for="hostip_disconnect" class="col-xs-4 col-sm-3 control-label">断开客户端连接</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="hostip_disconnect" type="checkbox">
@@ -1540,7 +1546,7 @@
 		</div>
 		<div class="form-group">
 			<div class="col-xs-12 col-sm-9 col-sm-offset-3">
-			<em><small class="form-text text-muted">rozłączenie klienta może być niezbędne do pobrania statycznego adresu IP</small></em>
+			<em><small class="form-text text-muted">下载静态IP地址可能需要断开客户端连接</small></em>
 			</div>
 		</div>
 		</form>
@@ -1548,9 +1554,9 @@
 
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="cancelhostip();" value="Anuluj" />
-			<input type="button" class="btn btn-primary" onclick="removehostip();" value="Usuń" />
-			<input type="button" class="btn btn-primary" onclick="savehostip();" value="Zapisz zmiany" />
+			<input type="button" class="btn btn-default" onclick="cancelhostip();" value="取消" />
+			<input type="button" class="btn btn-primary" onclick="removehostip();" value="删除" />
+			<input type="button" class="btn btn-primary" onclick="savehostip();" value="保存更改" />
 		</div>
 	</div>
 </div>
@@ -1559,36 +1565,36 @@
 	<div class="row modal-content text-center">
 		<input id="hostblock_mac" type="hidden">
 		<div class="text-center space">
-			Blokada dostępu do internetu dla "<span id="hostblock_name"></span>"
+			阻止的Internet访问 "<span id="hostblock_name"></span>"
 		</div>
 
-		<label class="rb">Brak
+		<label class="rb">关闭
 			<input id="hostblock_none" type="radio" name="hostblock_rb">
 			<span class="checkmark"></span>
 		</label>
-		<label class="rb">Stała
+		<label class="rb">连接
 			<input id="hostblock_permanent" type="radio" name="hostblock_rb">
 			<span class="checkmark"></span>
 		</label>
-		<label class="rb">Czasowa
+		<label class="rb">临时
 			<input id="hostblock_temporary" type="radio" name="hostblock_rb">
 			<span class="checkmark"></span>
 		</label>
 		<div id="div_hostblock_scheduler" class="space"></div>
 		<div class="col-xs-12">
 			<div class="row space">
-				<div id="hostblock_off" class="col-xs-1">&nbsp;</div><div class="col-xs-9 text-left">blokada dostępu</div>
+				<div id="hostblock_off" class="col-xs-1">&nbsp;</div><div class="col-xs-9 text-left">关闭</div>
 			</div>
 		</div>
 		<div class="row space">
-			<div class="col-xs-6"><a href="#" class="click" onclick="hostblock_checkall();">zaznacz wszystko</a></div>
-			<div class="col-xs-6"><a href="#" class="click" onclick="hostblock_uncheckall();">odznacz wszystko</a></div>
+			<div class="col-xs-6"><a href="#" class="click" onclick="hostblock_checkall();">全选</a></div>
+			<div class="col-xs-6"><a href="#" class="click" onclick="hostblock_uncheckall();">取消全选</a></div>
 		</div>
 
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="cancelhostblock();" value="Anuluj" />
-			<input type="button" class="btn btn-primary" onclick="okhostblock();" value="Ustaw" />
+			<input type="button" class="btn btn-default" onclick="cancelhostblock();" value="取消" />
+			<input type="button" class="btn btn-primary" onclick="okhostblock();" value="设置" />
 		</div>
 	</div>
 </div>
@@ -1596,24 +1602,24 @@
 <div id="div_hostqos" class="modal">
 	<div class="row modal-content">
 		<div class="text-center space">
-			Limit szybkości dla "<span id="hostqos_name"></span>"
+			速度限制"<span id="hostqos_name"></span>"
 		</div>
 
 		<form class="form-horizontal">
 		<div class="form-group">
-			<label for="hostqos_upload" class="hidden-xs col-sm-3 control-label">Wysyłanie do</label>
-			<label for="hostqos_upload" class="visible-xs col-xs-12 control-label text-left">Wysyłanie do</label>
+			<label for="hostqos_upload" class="hidden-xs col-sm-3 control-label">发送到</label>
+			<label for="hostqos_upload" class="visible-xs col-xs-12 control-label text-left">发送到</label>
 			<div class="col-xs-12 col-sm-9">
 			<input id="hostqos_upload" type="text" class="form-control" onkeyup="proofreadNumericRange(this,0,999)">
-			<em><small class="form-text text-muted">Mbps, 0 - brak limitu</small></em>
+			<em><small class="form-text text-muted">Mbps, 0 - 无限制</small></em>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="hostqos_download" class="hidden-xs col-sm-3 control-label">Pobieranie do</label>
-			<label for="hostqos_download" class="visible-xs col-xs-12 control-label text-left">Pobieranie do</label>
+			<label for="hostqos_download" class="hidden-xs col-sm-3 control-label">下载到</label>
+			<label for="hostqos_download" class="visible-xs col-xs-12 control-label text-left">下载到</label>
 			<div class="col-xs-12 col-sm-9">
 			<input id="hostqos_download" type="text" class="form-control" onkeyup="proofreadNumericRange(this,0,999)">
-			<em><small class="form-text text-muted">Mbps, 0 - brak limitu</small></em>
+			<em><small class="form-text text-muted">Mbps, 0 - 无限制</small></em>
 			</div>
 		</div>
 		</form>
@@ -1622,9 +1628,9 @@
 
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="cancelhostqos();" value="Anuluj" />
-			<input type="button" class="btn btn-primary" onclick="removehostqos();" value="Usuń limity" />
-			<input type="button" class="btn btn-primary" onclick="savehostqos();" value="Zapisz zmiany" />
+			<input type="button" class="btn btn-default" onclick="cancelhostqos();" value="取消" />
+			<input type="button" class="btn btn-primary" onclick="removehostqos();" value="删除限制" />
+			<input type="button" class="btn btn-primary" onclick="savehostqos();" value="保存更改" />
 		</div>
 	</div>
 </div>
@@ -1646,32 +1652,32 @@
 
 <div id="div_detectwan_pin" class="modal">
 	<div class="row modal-content">
-		<label class="text-center">Wykryto modem komórkowy, podaj PIN do karty SIM</label>
+		<label class="text-center">检测到移动调制解调器，输入SIM PIN</label>
 		<input id="detectwan_proto" type="hidden">
 		<input id="detectwan_device" type="hidden">
 		<input id="detectwan_pin" type="text" class="form-control space">
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="canceldetectwan_pin();" value="Anuluj" />
-			<input type="button" class="btn btn-primary" onclick="okdetectwan_pin();" value="OK" />
+			<input type="button" class="btn btn-default" onclick="canceldetectwan_pin();" value="取消" />
+			<input type="button" class="btn btn-primary" onclick="okdetectwan_pin();" value="确定" />
 		</div>
 	</div>
 </div>
 
 <div id="div_modemsettings" class="modal">
 	<div class="row modal-content">
-		<div class="text-center space">Ustawienia modemu</div>
+		<div class="text-center space">调制解调器设置</div>
 		<form class="form-horizontal">
 			<div class="form-group">
-				<label for="modemsettings_modem_device" class="hidden-xs col-sm-6 control-label">Interfejs diagnostyczny modemu</label>
-				<label for="modemsettings_modem_device" class="visible-xs col-xs-12 control-label text-left">Interfejs diagnostyczny modemu</label>
+				<label for="modemsettings_modem_device" class="hidden-xs col-sm-6 control-label">调制解调器诊断接口</label>
+				<label for="modemsettings_modem_device" class="visible-xs col-xs-12 control-label text-left">调制解调器诊断接口</label>
 				<div class="col-xs-12 col-sm-6">
 				<select id="modemsettings_modem_device" class="form-control">
 				</select>
 				</div>
 			</div>
 			<div class="form-group mmarginbottom">
-				<label for="modemsettings_modem_force_qmi" class="col-xs-6 control-label">Wymuszenie odczytu dancyh przez QMI</label>
+				<label for="modemsettings_modem_force_qmi" class="col-xs-6 control-label">QMI强制读取</label>
 				<div class="col-xs-6">
 				<label class="switch">
 					<input id="modemsettings_modem_force_qmi" type="checkbox">
@@ -1680,7 +1686,7 @@
 				</div>
 			</div>
 			<div class="form-group mmarginbottom">
-				<label for="modemsettings_modem_force_plmn" class="col-xs-6 control-label">Wymuszenie odczytu nazwy operatora z pliku</label>
+				<label for="modemsettings_modem_force_plmn" class="col-xs-6 control-label">强制从文件中读取操作员名称</label>
 				<div class="col-xs-6">
 				<label class="switch">
 					<input id="modemsettings_modem_force_plmn" type="checkbox">
@@ -1689,18 +1695,18 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="modemsettings_sms_storage" class="hidden-xs col-sm-6 control-label">Miejsce przechowywania SMS</label>
-				<label for="modemsettings_sms_storage" class="visible-xs col-xs-12 control-label text-left">Miejsce przechowywania SMS</label>
+				<label for="modemsettings_sms_storage" class="hidden-xs col-sm-6 control-label">短信存储位置</label>
+				<label for="modemsettings_sms_storage" class="visible-xs col-xs-12 control-label text-left">短信存储位置</label>
 				<div class="col-xs-12 col-sm-6">
 				<select id="modemsettings_sms_storage" class="form-control">
-					<option value="">Określone przez modem</option>
-					<option value="SM">SM - pamięć karty SIM</option>
-					<option value="ME">ME - pamięć modemu</option>
+					<option value="">由调制解调器指定</option>
+					<option value="SM">SM SIM卡存储器</option>
+					<option value="ME">ME调制解调器内存</option>
 				</select>
 				</div>
 			</div>
 			<div class="form-group mmarginbottom">
-				<label for="modemsettings_ussd_raw_input" class="col-xs-6 control-label">Odbieranie USSD bez dekodowana PDU</label>
+				<label for="modemsettings_ussd_raw_input" class="col-xs-6 control-label">接收未解码PDU的USSD</label>
 				<div class="col-xs-6">
 				<label class="switch">
 					<input id="modemsettings_ussd_raw_input" type="checkbox">
@@ -1709,7 +1715,7 @@
 				</div>
 			</div>
 			<div class="form-group mmarginbottom">
-				<label for="modemsettings_ussd_raw_output" class="col-xs-6 control-label">Wysyłanie USSD bez kodowana PDU</label>
+				<label for="modemsettings_ussd_raw_output" class="col-xs-6 control-label">发送不带编码PDU的USSD</label>
 				<div class="col-xs-6">
 				<label class="switch">
 					<input id="modemsettings_ussd_raw_output" type="checkbox">
@@ -1720,49 +1726,49 @@
 		</form>
 		<hr>
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="cancelmodemsettings();" value="Anuluj" />
-			<input type="button" class="btn btn-primary" onclick="savemodemsettings();" value="Zapisz zmiany" />
+			<input type="button" class="btn btn-default" onclick="cancelmodemsettings();" value="取消" />
+			<input type="button" class="btn btn-primary" onclick="savemodemsettings();" value="保存更改" />
 		</div>
 	</div>
 </div>
 
 <div id="div_modemat" class="modal">
 	<div class="row modal-content">
-		<label>Polecenie AT</label>
+		<label>AT命令</label>
 		<input id="modemat_cmd" type="text" class="form-control" value="AT">
 		<div class="text-left"><code><pre><span id="modemat_output"></span></pre></code></div>
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="closemodemat();" value="Zamknij" />
-			<input type="button" class="btn btn-default" onclick="sendmodemat();" value="Wyślij" />
+			<input type="button" class="btn btn-default" onclick="closemodemat();" value="关闭" />
+			<input type="button" class="btn btn-default" onclick="sendmodemat();" value="发送" />
 		</div>
 	</div>
 </div>
 
 <div id="div_modembands" class="modal">
 	<div class="row modal-content">
-		<div class="text-center space">Pasma LTE</div>
+		<div class="text-center space">LTE频段</div>
 		<form class="form-horizontal">
 			<div id="modembands_bands_lte"></div>
 		</form>
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-default modalmargintop" onclick="closemodembands();" value="Zamknij" />
-			<input type="button" class="btn btn-default modalmargintop" onclick="restartwan();" value="Restart poł." title="ponowne uruchomienie połączenia z internetem" />
-			<input type="button" class="btn btn-default modalmargintop" onclick="defaultmodembands();" value="Domyślne ust." title="przywraca domyślne ustawienia modemu" />
-			<input type="button" class="btn btn-default modalmargintop" onclick="modembands();" value="Odśwież" />
-			<input type="button" class="btn btn-primary modalmargintop" onclick="savemodembands();" value="Zapisz zmiany" />
+			<input type="button" class="btn btn-default modalmargintop" onclick="closemodembands();" value="关闭" />
+			<input type="button" class="btn btn-default modalmargintop" onclick="restartwan();" value="重启wan" title="重新启动互联网连接" />
+			<input type="button" class="btn btn-default modalmargintop" onclick="defaultmodembands();" value="默认口." title="恢复调制解调器的默认设置" />
+			<input type="button" class="btn btn-default modalmargintop" onclick="modembands();" value="刷新" />
+			<input type="button" class="btn btn-primary modalmargintop" onclick="savemodembands();" value="保存更改" />
 		</div>
 	</div>
 </div>
 
 <div id="div_vpn_new" class="modal">
 	<div class="row modal-content">
-		<div class="text-center space">Nowy VPN</div>
+		<div class="text-center space">新建VPN</div>
 
 		<form class="form-horizontal">
 		<div class="form-group">
-			<label for="vpn_new" class="col-xs-4 col-sm-3 control-label">Typ VPN</label>
+			<label for="vpn_new" class="col-xs-4 col-sm-3 control-label">VPN类型</label>
 			<div class="col-xs-8 col-sm-9">
 				<select id="vpn_new" class="form-control">
 				</select>
@@ -1772,8 +1778,8 @@
 
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-default modalmargintop" onclick="closevpnnew();" value="Anuluj" />
-			<input type="button" class="btn btn-primary modalmargintop" onclick="savevpnnew();" value="Dalej" />
+			<input type="button" class="btn btn-default modalmargintop" onclick="closevpnnew();" value="取消" />
+			<input type="button" class="btn btn-primary modalmargintop" onclick="savevpnnew();" value="继续" />
 		</div>
 	</div>
 </div>
@@ -1787,25 +1793,25 @@
 
 		<form class="form-horizontal">
 		<div class="form-group">
-			<label for="vpn_openvpn_name" class="col-xs-4 col-sm-3 control-label">Nazwa</label>
+			<label for="vpn_openvpn_name" class="col-xs-4 col-sm-3 control-label">名称</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="vpn_openvpn_name" type="text" class="form-control">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_openvpn_auto" class="col-xs-4 col-sm-3 control-label">Uruchamianie</label>
+			<label for="vpn_openvpn_auto" class="col-xs-4 col-sm-3 control-label">运行</label>
 			<div class="col-xs-8 col-sm-9">
 				<select id="vpn_openvpn_auto" class="form-control">
-				<option value="0">Manualne</option>
-				<option value="1">Po starcie systemu</option>
-				<option value="2">Po połączeniu do internetu</option>
+				<option value="0">手册</option>
+				<option value="1">稍后启动系统</option>
+				<option value="2">连接到Internet时</option>
 				</select>
 			</div>
 		</div>
 
 		<div class="form-group" id="div_vpn_openvpn_button">
-			<label for="vpn_openvpn_button" class="col-xs-4 col-sm-3 control-label">Sterowanie przyciskiem</label>
+			<label for="vpn_openvpn_button" class="col-xs-4 col-sm-3 control-label">按钮控制</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="vpn_openvpn_button" type="checkbox">
@@ -1815,7 +1821,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_openvpn_lanto" class="col-xs-4 col-sm-3 control-label">Dostęp z sieci lokalnej</label>
+			<label for="vpn_openvpn_lanto" class="col-xs-4 col-sm-3 control-label">本地网络接入</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="vpn_openvpn_lanto" type="checkbox">
@@ -1825,21 +1831,21 @@
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_openvpn_username" class="col-xs-4 col-sm-3 control-label">Nazwa użytkownika</label>
+			<label for="vpn_openvpn_username" class="col-xs-4 col-sm-3 control-label">用户名</label>
 			<div class="col-xs-8 col-sm-9">
 				<input id="vpn_openvpn_username" class="form-control">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_openvpn_password" class="col-xs-4 col-sm-3 control-label click" onclick="showPassword('vpn_openvpn_password');">Hasło</label>
+			<label for="vpn_openvpn_password" class="col-xs-4 col-sm-3 control-label click" onclick="showPassword('vpn_openvpn_password');">密码</label>
 			<div class="col-xs-8 col-sm-9">
 				<input id="vpn_openvpn_password" type="password" class="form-control">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_openvpn_configtext" class="col-xs-12 col-sm-3 control-label col-xs-12-text-left">Zawartość pliku konfiguracyjnego</label>
+			<label for="vpn_openvpn_configtext" class="col-xs-12 col-sm-3 control-label col-xs-12-text-left">配置文件的内容</label>
 			<div class="col-xs-12 col-sm-9">
 				<textarea id="vpn_openvpn_configtext" class="form-control" rows="20"></textarea>
 			</div>
@@ -1847,9 +1853,9 @@
 
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="cancelopenvpn();" value="Anuluj" />
-			<input type="button" class="btn btn-default" onclick="removeopenvpn();" value="Usuń" />
-			<input type="button" class="btn btn-primary" onclick="saveopenvpn();" value="Zapisz zmiany" />
+			<input type="button" class="btn btn-default" onclick="cancelopenvpn();" value="取消" />
+			<input type="button" class="btn btn-default" onclick="removeopenvpn();" value="删除" />
+			<input type="button" class="btn btn-primary" onclick="saveopenvpn();" value="保存更改" />
 		</div>
 		</form>
 	</div>
@@ -1863,25 +1869,25 @@
 
 		<form class="form-horizontal">
 		<div class="form-group">
-			<label for="vpn_pptp_name" class="col-xs-4 col-sm-3 control-label">Nazwa</label>
+			<label for="vpn_pptp_name" class="col-xs-4 col-sm-3 control-label">名称</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="vpn_pptp_name" type="text" class="form-control">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_pptp_auto" class="col-xs-4 col-sm-3 control-label">Uruchamianie</label>
+			<label for="vpn_pptp_auto" class="col-xs-4 col-sm-3 control-label">运行</label>
 			<div class="col-xs-8 col-sm-9">
 				<select id="vpn_pptp_auto" class="form-control">
-				<option value="0">Manualne</option>
-				<option value="1">Po starcie systemu</option>
-				<option value="2">Po połączeniu do internetu</option>
+				<option value="0">手册</option>
+				<option value="1">稍后启动系统</option>
+				<option value="2">连接到Internet时</option>
 				</select>
 			</div>
 		</div>
 
 		<div class="form-group" id="div_vpn_pptp_button">
-			<label for="vpn_pptp_button" class="col-xs-4 col-sm-3 control-label">Sterowanie przyciskiem</label>
+			<label for="vpn_pptp_button" class="col-xs-4 col-sm-3 control-label">控制按钮</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="vpn_pptp_button" type="checkbox">
@@ -1891,7 +1897,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_pptp_lanto" class="col-xs-4 col-sm-3 control-label">Dostęp z sieci lokalnej</label>
+			<label for="vpn_pptp_lanto" class="col-xs-4 col-sm-3 control-label">本地网络接入</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="vpn_pptp_lanto" type="checkbox">
@@ -1901,28 +1907,28 @@
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_pptp_server" class="col-xs-4 col-sm-3 control-label">Adres lub nazwa serwera</label>
+			<label for="vpn_pptp_server" class="col-xs-4 col-sm-3 control-label">服务器地址或名称</label>
 			<div class="col-xs-8 col-sm-9">
 				<input id="vpn_pptp_server" type="text" class="form-control" onkeyup="proofreadHost(this)">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_pptp_username" class="col-xs-4 col-sm-3 control-label">Nazwa użytkownika</label>
+			<label for="vpn_pptp_username" class="col-xs-4 col-sm-3 control-label">用户名</label>
 			<div class="col-xs-8 col-sm-9">
 				<input id="vpn_pptp_username" class="form-control">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_pptp_password" class="col-xs-4 col-sm-3 control-label click" onclick="showPassword('vpn_pptp_password');">Hasło</label>
+			<label for="vpn_pptp_password" class="col-xs-4 col-sm-3 control-label click" onclick="showPassword('vpn_pptp_password');">密码</label>
 			<div class="col-xs-8 col-sm-9">
 				<input id="vpn_pptp_password" type="password" class="form-control">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_pptp_mppe" class="col-xs-4 col-sm-3 control-label">Szyfrowanie Point-to-Point (MPPE)</label>
+			<label for="vpn_pptp_mppe" class="col-xs-4 col-sm-3 control-label">点对点加密（MPPE）</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="vpn_pptp_mppe" type="checkbox">
@@ -1933,9 +1939,9 @@
 
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="cancelpptp();" value="Anuluj" />
-			<input type="button" class="btn btn-default" onclick="removepptp();" value="Usuń" />
-			<input type="button" class="btn btn-primary" onclick="savepptp();" value="Zapisz zmiany" />
+			<input type="button" class="btn btn-default" onclick="cancelpptp();" value="取消" />
+			<input type="button" class="btn btn-default" onclick="removepptp();" value="删除" />
+			<input type="button" class="btn btn-primary" onclick="savepptp();" value="保存更改" />
 		</div>
 		</form>
 	</div>
@@ -1949,25 +1955,25 @@
 
 		<form class="form-horizontal">
 		<div class="form-group">
-			<label for="vpn_sstp_name" class="col-xs-4 col-sm-3 control-label">Nazwa</label>
+			<label for="vpn_sstp_name" class="col-xs-4 col-sm-3 control-label">名称</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="vpn_sstp_name" type="text" class="form-control">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_sstp_auto" class="col-xs-4 col-sm-3 control-label">Uruchamianie</label>
+			<label for="vpn_sstp_auto" class="col-xs-4 col-sm-3 control-label">运行</label>
 			<div class="col-xs-8 col-sm-9">
 				<select id="vpn_sstp_auto" class="form-control">
-				<option value="0">Manualne</option>
-				<option value="1">Po starcie systemu</option>
-				<option value="2">Po połączeniu do internetu</option>
+				<option value="0">手册</option>
+				<option value="1">稍后启动系统</option>
+				<option value="2">连接到Internet时</option>
 				</select>
 			</div>
 		</div>
 
 		<div class="form-group" id="div_vpn_sstp_button">
-			<label for="vpn_sstp_button" class="col-xs-4 col-sm-3 control-label">Sterowanie przyciskiem</label>
+			<label for="vpn_sstp_button" class="col-xs-4 col-sm-3 control-label">按钮控制</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="vpn_sstp_button" type="checkbox">
@@ -1977,7 +1983,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_sstp_lanto" class="col-xs-4 col-sm-3 control-label">Dostęp z sieci lokalnej</label>
+			<label for="vpn_sstp_lanto" class="col-xs-4 col-sm-3 control-label">本地网络接入</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="vpn_sstp_lanto" type="checkbox">
@@ -1987,21 +1993,21 @@
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_sstp_server" class="col-xs-4 col-sm-3 control-label">Adres lub nazwa serwera</label>
+			<label for="vpn_sstp_server" class="col-xs-4 col-sm-3 control-label">服务器地址或名称</label>
 			<div class="col-xs-8 col-sm-9">
 				<input id="vpn_sstp_server" type="text" class="form-control" onkeyup="proofreadHost(this)">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_sstp_username" class="col-xs-4 col-sm-3 control-label">Nazwa użytkownika</label>
+			<label for="vpn_sstp_username" class="col-xs-4 col-sm-3 control-label">用户名</label>
 			<div class="col-xs-8 col-sm-9">
 				<input id="vpn_sstp_username" class="form-control">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_sstp_password" class="col-xs-4 col-sm-3 control-label click" onclick="showPassword('vpn_sstp_password');">Hasło</label>
+			<label for="vpn_sstp_password" class="col-xs-4 col-sm-3 control-label click" onclick="showPassword('vpn_sstp_password');">密码</label>
 			<div class="col-xs-8 col-sm-9">
 				<input id="vpn_sstp_password" type="password" class="form-control">
 			</div>
@@ -2009,9 +2015,9 @@
 
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="cancelsstp();" value="Anuluj" />
-			<input type="button" class="btn btn-default" onclick="removesstp();" value="Usuń" />
-			<input type="button" class="btn btn-primary" onclick="savesstp();" value="Zapisz zmiany" />
+			<input type="button" class="btn btn-default" onclick="cancelsstp();" value="取消" />
+			<input type="button" class="btn btn-default" onclick="removesstp();" value="删除" />
+			<input type="button" class="btn btn-primary" onclick="savesstp();" value="保存更改" />
 		</div>
 		</form>
 	</div>
@@ -2025,18 +2031,18 @@
 
 		<form class="form-horizontal">
 		<div class="form-group">
-			<label for="vpn_wireguard_auto" class="col-xs-4 col-sm-3 control-label">Uruchamianie</label>
+			<label for="vpn_wireguard_auto" class="col-xs-4 col-sm-3 control-label">运行</label>
 			<div class="col-xs-8 col-sm-9">
 				<select id="vpn_wireguard_auto" class="form-control">
-				<option value="0">Manualne</option>
-				<option value="1">Po starcie systemu</option>
-				<option value="2">Po połączeniu do internetu</option>
+				<option value="0">手册</option>
+				<option value="1">稍后启动系统</option>
+				<option value="2">连接到Internet时</option>
 				</select>
 			</div>
 		</div>
 
 		<div class="form-group" id="div_vpn_wireguard_button">
-			<label for="vpn_wireguard_button" class="col-xs-4 col-sm-3 control-label">Sterowanie przyciskiem</label>
+			<label for="vpn_wireguard_button" class="col-xs-4 col-sm-3 control-label">按钮控制</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="vpn_wireguard_button" type="checkbox">
@@ -2046,7 +2052,7 @@
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_wireguard_lanto" class="col-xs-4 col-sm-3 control-label">Dostęp z sieci lokalnej</label>
+			<label for="vpn_wireguard_lanto" class="col-xs-4 col-sm-3 control-label">本地网络接入</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="vpn_wireguard_lanto" type="checkbox">
@@ -2056,25 +2062,25 @@
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_wireguard_privkey" class="col-xs-4 col-sm-3 control-label click" onclick="showPassword('vpn_wireguard_privkey');">Klucz prywatny</label>
+			<label for="vpn_wireguard_privkey" class="col-xs-4 col-sm-3 control-label click" onclick="showPassword('vpn_wireguard_privkey');">私钥</label>
 			<div class="col-xs-8 col-sm-9">
 				<input id="vpn_wireguard_privkey" type="password" class="form-control" onkeyup="proofreadLengthRange(this, 44, 44);addwireguardkeys(this.value);">
 			</div>
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_wireguard_pubkey" class="col-xs-4 col-sm-3 control-label">Klucz publiczny</label>
+			<label for="vpn_wireguard_pubkey" class="col-xs-4 col-sm-3 control-label">公钥</label>
 			<div class="col-xs-8 col-sm-9">
 				<input id="vpn_wireguard_pubkey" class="form-control" disabled>
 			</div>
 		</div>
 
 		<div class="text-right space">
-			<input type="button" class="btn btn-default" onclick="addwireguardkeys('genkeys');" value="Nowe klucze" />
+			<input type="button" class="btn btn-default" onclick="addwireguardkeys('genkeys');" value="新密钥" />
 		</div>
 
 		<div class="form-group">
-			<label for="vpn_wireguard_port" class="col-xs-4 col-sm-3 control-label">Port</label>
+			<label for="vpn_wireguard_port" class="col-xs-4 col-sm-3 control-label">端口</label>
 			<div class="col-xs-8 col-sm-9">
 				<input id="vpn_wireguard_port" class="form-control" onkeyup="proofreadNumericRange(this, 0, 65535);">
 			</div>
@@ -2083,31 +2089,31 @@
 		<input id="vpn_wireguard_ips" type="hidden">
 		<div id="div_vpn_wireguard_ips_template" style="display:none">
 		<div class="form-group">
-			<label for="vpn_wireguard_ips_idx" class="col-xs-4 col-sm-3 control-label">Adres IP</label>
+			<label for="vpn_wireguard_ips_idx" class="col-xs-4 col-sm-3 control-label">IP地址</label>
 			<div class="col-xs-8 col-sm-9 input-group">
 				<input id="vpn_wireguard_ips_idx" type="text" class="form-control" onkeyup="proofreadIpWithMask(this);">
-				<span class="click input-group-element" title="usuń adres IP" onclick="removewireguardips('_idx');"><i data-feather="trash-2"></i></span>
+				<span class="click input-group-element" title="删除IP地址" onclick="removewireguardips('_idx');"><i data-feather="trash-2"></i></span>
 			</div>
 		</div>
 		</div>
 		<div id="vpn_wireguard_ips_content"></div>
 		<div class="text-right">
-			<input type="button" class="btn btn-default" onclick="addwireguardips();" value="Nowy adres IP" />
+			<input type="button" class="btn btn-default" onclick="addwireguardips();" value="新IP地址" />
 		</div>
 
 		<h3>Tunele</h3>
 		<input id="vpn_wireguard_peers" type="hidden">
 		<div id="div_vpn_wireguard_peer_template" style="display:none">
 			<div class="form-group">
-				<label for="vpn_wireguard_description_idx" class="col-xs-4 col-sm-3 control-label">Nazwa</label>
+				<label for="vpn_wireguard_description_idx" class="col-xs-4 col-sm-3 control-label">名称</label>
 				<div class="col-xs-8 col-sm-9 input-group">
 					<input id="vpn_wireguard_description_idx" class="form-control" onkeyup="proofreadLengthRange(this,1,255);">
-					<span class="click input-group-element" title="usuń tunel" onclick="removewireguardpeer('_idx');"><i data-feather="trash-2"></i></span>
+					<span class="click input-group-element" title="删除隧道" onclick="removewireguardpeer('_idx');"><i data-feather="trash-2"></i></span>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="vpn_wireguard_enabled_idx" class="col-xs-4 col-sm-3 control-label">Włączony</label>
+				<label for="vpn_wireguard_enabled_idx" class="col-xs-4 col-sm-3 control-label">启用</label>
 				<div class="col-xs-8 col-sm-9">
 				<label class="switch">
 					<input id="vpn_wireguard_enabled_idx" type="checkbox">
@@ -2117,21 +2123,21 @@
 			</div>
 
 			<div class="form-group">
-				<label for="vpn_wireguard_pubkey_idx" class="col-xs-4 col-sm-3 control-label">Klucz publiczny</label>
+				<label for="vpn_wireguard_pubkey_idx" class="col-xs-4 col-sm-3 control-label">公钥</label>
 				<div class="col-xs-8 col-sm-9">
 				<input id="vpn_wireguard_pubkey_idx" class="form-control" onkeyup="proofreadLengthRange(this, 44, 44);">
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="vpn_wireguard_endpoint_host_idx" class="col-xs-4 col-sm-3 control-label">Host</label>
+				<label for="vpn_wireguard_endpoint_host_idx" class="col-xs-4 col-sm-3 control-label">主机</label>
 				<div class="col-xs-8 col-sm-9">
 				<input id="vpn_wireguard_endpoint_host_idx" class="form-control" onkeyup="proofreadHost(this);">
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="vpn_wireguard_endpoint_port_idx" class="col-xs-4 col-sm-3 control-label">Port</label>
+				<label for="vpn_wireguard_endpoint_port_idx" class="col-xs-4 col-sm-3 control-label">端口</label>
 				<div class="col-xs-8 col-sm-9">
 				<input id="vpn_wireguard_endpoint_port_idx" class="form-control" onkeyup="proofreadNumericRange(this, 0, 65535);">
 				</div>
@@ -2140,30 +2146,30 @@
 			<input id="vpn_wireguard_allowed_ips_idx" type="hidden">
 			<div id="div_vpn_wireguard_allowed_ips_idx_template" style="display:none">
 			<div class="form-group">
-				<label for="vpn_wireguard_allowed_ips_idx_idy" class="col-xs-4 col-sm-3 control-label">Dozwolony adres IP</label>
+				<label for="vpn_wireguard_allowed_ips_idx_idy" class="col-xs-4 col-sm-3 control-label">允许的IP地址</label>
 				<div class="col-xs-8 col-sm-9 input-group">
 					<input id="vpn_wireguard_allowed_ips_idx_idy" class="form-control" onkeyup="proofreadIpWithMask(this);">
-					<span class="click input-group-element" title="usuń dozwolony adres IP" onclick="removewireguardallowedips('_idx_idy');"><i data-feather="trash-2"></i></span>
+					<span class="click input-group-element" title="删除允许的IP地址" onclick="removewireguardallowedips('_idx_idy');"><i data-feather="trash-2"></i></span>
 				</div>
 			</div>
 			</div>
 			<div id="vpn_wireguard_allowed_ips_idx_content"></div>
 			<div class="text-right">
-				<input type="button" class="btn btn-default" onclick="addwireguardallowedips('_idx');" value="Nowy adres IP" />
+				<input type="button" class="btn btn-default" onclick="addwireguardallowedips('_idx');" value="新IP地址" />
 			</div>
 
 			<hr>
 		</div>
 		<div id="vpn_wireguard_peers_content"></div>
 		<div class="text-right">
-			<input type="button" class="btn btn-default" onclick="addwireguardpeer(true);" value="Nowy tunel" />
+			<input type="button" class="btn btn-default" onclick="addwireguardpeer(true);" value="新建隧道" />
 		</div>
 
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="cancelwireguard();" value="Anuluj" />
-			<input type="button" class="btn btn-default" onclick="removewireguard();" value="Usuń" />
-			<input type="button" class="btn btn-primary" onclick="savewireguard();" value="Zapisz zmiany" />
+			<input type="button" class="btn btn-default" onclick="cancelwireguard();" value="取消" />
+			<input type="button" class="btn btn-default" onclick="removewireguard();" value="删除" />
+			<input type="button" class="btn btn-primary" onclick="savewireguard();" value="保存更改" />
 		</div>
 		</form>
 	</div>
@@ -2177,14 +2183,14 @@
 
 		<form class="form-horizontal">
 		<div class="form-group">
-			<label for="vpn_zerotier_name" class="col-xs-4 col-sm-3 control-label">Nazwa</label>
+			<label for="vpn_zerotier_name" class="col-xs-4 col-sm-3 control-label">名称</label>
 			<div class="col-xs-8 col-sm-9">
 			<input id="vpn_zerotier_name" type="text" class="form-control">
 			</div>
 		</div>
 
 		<div class="form-group" id="div_vpn_zerotier_enabled">
-			<label for="vpn_zerotier_enabled" class="col-xs-4 col-sm-3 control-label">Włączony</label>
+			<label for="vpn_zerotier_enabled" class="col-xs-4 col-sm-3 control-label">启用</label>
 			<div class="col-xs-8 col-sm-9">
 			<label class="switch">
 				<input id="vpn_zerotier_enabled" type="checkbox">
@@ -2196,23 +2202,23 @@
 		<input id="vpn_zerotier_network" type="hidden">
 		<div id="div_vpn_zerotier_network_template" style="display:none">
 		<div class="form-group">
-			<label for="vpn_zerotier_network_idx" class="col-xs-4 col-sm-3 control-label">Sieć</label>
+			<label for="vpn_zerotier_network_idx" class="col-xs-4 col-sm-3 control-label">网络</label>
 			<div class="col-xs-8 col-sm-9 input-group">
 				<input id="vpn_zerotier_network_idx" type="text" class="form-control" onkeyup="proofreadLengthRange(this, 16, 16);"">
-				<span class="click input-group-element" title="usuń sieć" onclick="removezerotiernetwork('_idx');"><i data-feather="trash-2"></i></span>
+				<span class="click input-group-element" title="删除网络" onclick="removezerotiernetwork('_idx');"><i data-feather="trash-2"></i></span>
 			</div>
 		</div>
 		</div>
 		<div id="vpn_zerotier_network_content"></div>
 		<div class="text-right">
-			<input type="button" class="btn btn-default" onclick="addzerotiernetwork();" value="Nowa sieć" />
+			<input type="button" class="btn btn-default" onclick="addzerotiernetwork();" value="新建网络" />
 		</div>
 
 		<h3 class="section"></h3>
 		<div class="text-center">
-			<input type="button" class="btn btn-default" onclick="cancelzerotier();" value="Anuluj" />
-			<input type="button" class="btn btn-default" onclick="removezerotier();" value="Usuń" />
-			<input type="button" class="btn btn-primary" onclick="savezerotier();" value="Zapisz zmiany" />
+			<input type="button" class="btn btn-default" onclick="cancelzerotier();" value="取消" />
+			<input type="button" class="btn btn-default" onclick="removezerotier();" value="删除" />
+			<input type="button" class="btn btn-primary" onclick="savezerotier();" value="保存更改" />
 		</div>
 		</form>
 	</div>
